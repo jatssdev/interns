@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="img1.webp" type="image/x-icon">
+    <style>
+        /* form {
+            border: 1px solid black;
+            padding: 20px;
+
+
+        } */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        form div {
+            margin: 10px 0;
+        }
+
+        form .valueInput {
+            padding: 10px;
+            width: 100%;
+        }
+
+        .navbar {
+            width: 100%;
+            padding: 0 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <h1>Logo</h1>
+    </div>
+    <form action="" method="get">
+        <fieldset>
+            <legend>User Form</legend>
+            <div>
+                <label for="name">Name </label>
+                <!-- <span>Name : </span> -->
+                <input class="valueInput" type="text" id="name">
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input class="valueInput" type="email" id="email">
+            </div>
+            <div>
+                <label for="pass">Password</label>
+                <input class="valueInput" type="text" id="pass">
+            </div>
+            <div>
+                <input type="submit" value="Register">
+            </div>
+            <div>
+                <p>I have a : </p>
+                <label for="car">Car</label><input type="checkbox" name="" id="car">
+                <label for="boat">Boat</label><input type="checkbox" name="" id="boat">
+                <label for="bike">Bike</label><input type="checkbox" name="" id="bike">
+            </div>
+            <div>
+                <p>Gender</p>
+                <label for="male">Male</label><input type="radio" id="male" name="gender">
+                <label for="female">FeMale</label><input id="female" type="radio" name="gender">
+            </div>
+            <select name="" id="">
+                <option value="">Select Option</option>
+                <option value="">Option1</option>
+                <option value="">Option2</option>
+                <option value="option5">Option3</option>
+                <option value="">Option4</option>
+                <option value="">Option5</option>
+                <option value="">Option6</option>
+                <option value="">Option1</option>
+            </select>
+        </fieldset>
+    </form>
+</body>
+
+</html>
