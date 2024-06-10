@@ -5,12 +5,32 @@
 @endpush
 
 @section('main-section')
-<h1>Hello home</h1>
-<form action="{{route('user.add')}}" method="post">
-    @csrf
-    <input type="text" name="name" id="name">
-    <input type="text" name="email" id="name">
-    <input type="text" name="pass" id="name">
-    <button>Add User</button>
-</form>
+
+
+<div class="container my-5">
+
+    <table class="table table-strapped">
+        <tr class="bg-dark text-white">
+            <th class="text-center" colspan="3">Users Data</th>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+
+        @foreach ($users as $val)
+            <tr>
+                <td>{{$val->name}}</td>
+                <td>{{$val->email}}</td>
+                <td><button>Delete</button></td>
+            </tr>
+        @endforeach
+    </table>
+
+</div>
+
+
+
+
 @endsection

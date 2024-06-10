@@ -11,6 +11,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     @stack('title')
+
 </head>
 
 <body>
@@ -29,7 +30,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/users">Users</a>
+                        <a class="nav-link active" aria-current="page" href="/adduser">Add User</a>
                     </li>
 
                 </ul>
