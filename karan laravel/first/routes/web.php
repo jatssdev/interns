@@ -22,3 +22,6 @@ Route::get('/adduser', function () {
 });
 
 Route::post('/add', [userController::class, 'add'])->name('user.add');
+
+
+Route::delete('/delete/{id}', [userController::class, 'destroy'])->name('user.destroy');

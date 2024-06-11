@@ -23,7 +23,14 @@
             <tr>
                 <td>{{$val->name}}</td>
                 <td>{{$val->email}}</td>
-                <td><button>Delete</button></td>
+                <td>
+                    <form action="{{route('user.destroy', $val->id)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <!-- <input type="hidden" name="id" value="{{$val->id}}"> -->
+                        <button>Delete</button>
+                    </form>
+                </td>
             </tr>
         @endforeach
     </table>
