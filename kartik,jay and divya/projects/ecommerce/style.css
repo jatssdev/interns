@@ -112,4 +112,8 @@ header p:hover {
     width: 50%;
 }
 
+header .col1 a {
+    text-decoration: none;
+}
+
 /* home page end  */
