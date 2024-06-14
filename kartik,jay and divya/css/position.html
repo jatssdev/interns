@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            height: 100px;
+            width: 100px;
+
+        }
+
+        .static {
+            position: static;
+            background-color: red;
+        }
+
+        .absolute {
+            background-color: green;
+            position: absolute;
+            bottom: 150px;
+            right: 100px;
+        }
+
+        .relative {
+            background-color: rgb(145, 181, 145);
+            position: relative;
+            top: 100px;
+            left: 100px;
+        }
+
+        .main {
+            width: 500px;
+            height: 500px;
+            position: relative;
+            background-color: greenyellow;
+            z-index: 100;
+
+
+        }
+
+        .main .children {
+            background-color: blue;
+            position: absolute;
+            top: 100px;
+            right: 100px;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            background-color: black;
+            color: white;
+            width: 100%;
+            z-index: 200;
+            position: sticky;
+            top: 0;
+            left: 0;
+            padding: 20px;
+        }
+
+        .fixed {
+            background-color: blueviolet;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        section {
+            height: 150vh;
+            border-bottom: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <marquee>50% off On Shopping Above ₹5999</marquee>
+        <h1>Css Positions</h1>
+
+
+        <div class="main">
+            <div class="box children"></div>
+
+        </div>
+        <div class="box static">
+            Box 1
+        </div>
+
+        <div class="box absolute">
+            Box 1
+        </div>
+
+        <div class="box relative">
+            Box 1
+        </div>
+
+        <div class="box fixed">
+            Box 1
+        </div>
+
+    </section>'
+    <section>
+        <style>
+            .card img {
+                width: 100%;
+                height: 100%;
+            }
+
+            .card {
+                width: 400px;
+                border: 1px solid gray;
+                height: 500px;
+                overflow: hidden;
+                position: relative;
+            }
+
+            .card .content {
+                background-color: red;
+                height: 100%;
+                width: 0;
+                top: 0%;
+                left: 50%;
+                display: flex;
+                justify-content: center;
+                overflow: hidden;
+                align-items: center;
+                position: absolute;
+                transition:  .3s;
+            }
+
+            .card:hover .content {
+                left: 0;
+                width: 100%;
+            }
+        </style>
+        <div class="card">
+            <img src="../images/product1.jpg" alt="">
+            <div class="content">
+                <button>Show More</button>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
