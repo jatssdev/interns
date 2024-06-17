@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .dropdown {
+            width: fit-content;
+            position: relative;
+        }
+
+        .dropdown>p {
+            background-color: blue;
+            padding: 10px 20px;
+            width: fit-content;
+        }
+
+        .dropdown .drop p {
+            padding: 7px;
+            text-align: center;
+            border-bottom: 1px solid gray;
+            transition: .3s;
+        }
+
+        .dropdown .drop {
+            display: none;
+            position: absolute;
+            top: 100%;
+            background-color: white;
+            width: 100%;
+        }
+
+        .dropdown .drop p:hover {
+            background-color: gray;
+        }
+
+        .dropdown:hover .drop {
+            display: block;
+        }
+
+        h2 {
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dropdown">
+        <p>Hover Me</p>
+        <div class="drop">
+            <p>option1</p>
+            <p>option1</p>
+            <p>option1</p>
+            <p>option1</p>
+            <p>option1</p>
+        </div>
+    </div>
+    <h2>Content Lorem ipsum dolor sit amet consectetur adipisicing elit. A veniam deserunt cumque, cupiditate adipisci
+        voluptatem consequuntur in molestias vel. Iste voluptatum rerum, minima exercitationem recusandae, enim, natus
+        aperiam nesciunt distinctio repellat beatae nostrum nobis est ipsum pariatur cupiditate vitae magni. Ipsa enim
+        labore, fugiat tempore dignissimos quae non. Harum ipsa sunt, vero possimus in vel inventore dolores odio.
+        Expedita, a, repellat nesciunt nam distinctio impedit harum amet accusantium delectus vero suscipit obcaecati
+        accusamus enim dicta molestiae? Tenetur beatae dolorum, quia amet illo soluta sed nisi odio! Asperiores nobis
+        magnam tempore repellat iusto, harum dolore doloremque illum! Nemo rerum culpa earum?</h2>
+
+</body>
+
+</html>
