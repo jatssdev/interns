@@ -6,6 +6,10 @@
 
 @section('main-section')
 
+@if (@session('success'))
+<p>{{@session('success')}}</p>
+
+@endif
 
 <div class="container my-5">
 
@@ -29,6 +33,7 @@
                         @method('DELETE')
                         <!-- <input type="hidden" name="id" value="{{$val->id}}"> -->
                         <button>Delete</button>
+                        <a href="{{route('user.edit', $val->id)}}">Edit</a>
                     </form>
                 </td>
             </tr>

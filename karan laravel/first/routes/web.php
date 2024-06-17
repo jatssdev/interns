@@ -22,6 +22,8 @@ Route::get('/adduser', function () {
 });
 
 Route::post('/add', [userController::class, 'add'])->name('user.add');
+Route::get('/edit/{id}', [userController::class, 'edit'])->name('user.edit');
+Route::put('/update/{id}', [userController::class, 'update'])->name('user.update');
 
 
 Route::delete('/delete/{id}', [userController::class, 'destroy'])->name('user.destroy');
