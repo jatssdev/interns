@@ -12,12 +12,17 @@
 </head>
 
 <body>
+    <div id="searchComp" class="searchComp products wrapper"></div>
 
     <div class="navbar">
         <h1>Rihit's Store</h1>
         <div class="links">
-            <p>Home</p>
+            <p onclick="searchComp.style.display = 'none'">Home</p>
             <p>About</p>
+        </div>
+        <div class="search">
+            <input id="searchVal" type="search" name="" id="">
+            <button onclick="SearchHandler()">Search</button>
         </div>
         <div class="cart" onclick="cartToggle()">
             <i class="fa-solid fa-shopping-bag"></i>

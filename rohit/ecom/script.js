@@ -490,7 +490,7 @@ let renderProducts = (wrapper, data, num = 4) => {
         return `<div class="product">
         <img src="${x.img}" alt="">
         <h2>${x.title}</h2>
-        <h3><del>₹${x.price}</del> <span>₹${x.price}</span></h3>
+        <h3><del>₹${x.price}</del> <span>₹${Math.round((x.price / 100) * (100 - x.discount))}</span></h3>
         <button onclick='AddToCart(${x.id})'>Add To cart</button>
     </div>`
     }).join('')
@@ -501,7 +501,7 @@ let renderCart = () => {
         return `<div class="product">
         <img src="${x.img}" alt="">
         <h2>${x.title}</h2>
-        <h3><del>₹${x.price}</del> <span>₹${x.price}</span></h3>
+        <h3><del>₹${x.price}</del> <span>₹${(x.price / 100) * (100 - x.discount)}</span></h3>
         <i onclick='Remove(${x.id})' class='fa-solid fa-x'></i>
     </div>`
     }).join('')
@@ -529,5 +529,25 @@ const Remove = (id) => {
     renderCart()
 
 
+
+}
+
+const SearchHandler = () => {
+    let val = searchVal.value;
+
+    let searchedArr = products.filter((x) => x.title.toUpperCase().includes(val.toUpperCase()))
+    searchComp.style.display = 'block'
+    if (searchedArr.length) {
+        searchComp.innerHTML = searchedArr.map((x) => {
+            return `<div class="product">
+            <img src="${x.img}" alt="">
+            <h2>${x.title}</h2>
+            <h3><del>₹${x.price}</del> <span>₹${Math.round((x.price / 100) * (100 - x.discount))}</span></h3>
+            <button onclick='AddToCart(${x.id})'>Add To cart</button>
+        </div>`
+        }).join('')
+    } else {
+        searchComp.innerHTML = `no results found for "${val}"`
+    }
 
 }
