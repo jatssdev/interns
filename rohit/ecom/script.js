@@ -488,7 +488,7 @@ let cartArr = []
 let renderProducts = (wrapper, data, num = 4) => {
     wrapper.innerHTML = data.slice(0, num).map((x) => {
         return `<div class="product">
-        <img src="${x.img}" alt="">
+        <img src="${x.img}" alt="" onclick='SingleProductHandler(${x.id})'>
         <h2>${x.title}</h2>
         <h3><del>₹${x.price}</del> <span>₹${Math.round((x.price / 100) * (100 - x.discount))}</span></h3>
         <button onclick='AddToCart(${x.id})'>Add To cart</button>
@@ -550,4 +550,28 @@ const SearchHandler = () => {
         searchComp.innerHTML = `no results found for "${val}"`
     }
 
+}
+
+const SingleProductHandler = (id) => {
+    let x = products.find((x) => x.id == id)
+    singleProduct.style.display = 'flex'
+    singleProduct.innerHTML = ` <div class="sProduct">
+            <div class="col1">
+                <div class="mainImg">
+                    <img id='previewImage' src="${x.img}" alt="">
+                </div>
+                <div class="images">
+                    <img onclick='previewImage.src =this.src' src="${x.img}" alt="">
+                    <img onclick='previewImage.src =this.src' src="${x.img2}" alt="">
+                    <img onclick='previewImage.src =this.src' src="${x.img3}" alt="">
+                    <img onclick='previewImage.src =this.src' src="${x.img4}" alt="">
+                    <img onclick='previewImage.src =this.src' src="${x.img5}" alt="">
+                </div>
+            </div>
+            <div class="col2">
+                <h2>${x.title}</h2>
+                <h3>₹9888</h3>
+                <button>Add TO Cart</button>
+            </div>
+        </div>`
 }

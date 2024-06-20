@@ -47,6 +47,7 @@
 
 .wrapper img {
     width: 100%;
+    cursor: pointer;
 }
 
 .wrapper .product h2 {
@@ -111,4 +112,48 @@
     top: 80px;
     display: none;
     background-color: rgb(235, 235, 235);
+}
+
+.singleProduct {
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.255);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    display: none;
+    align-items: center;
+    top: 0;
+    left: 0;
+}
+
+.sProduct {
+    display: flex;
+    height: 80vh;
+    gap: 50px;
+    width: 70%;
+    background-color: white;
+
+}
+
+.sProduct .col1,
+.sProduct .col2 {
+    width: 50%;
+    padding: 30px;
+
+}
+
+.singleProduct img {
+    width: 100%;
+}
+
+.sProduct .col1 .images {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.sProduct .col1 .images img {
+    border: 1px solid gray;
+    padding: 20px;
 }
