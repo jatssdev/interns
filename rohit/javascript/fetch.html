@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Fetch Data From Backend</h1>
+
+    <div id="wrapper">
+
+    </div>
+
+    <script>
+        let GetAllProduts = async () => {
+            let result = await fetch('https://dummyjson.com/products')
+            let data = await result.json()
+            let products = data.products
+            console.log(products)
+
+            wrapper.innerHTML = products.map((x) => {
+                return `<h1>${x.title}</h1><img src='${x.thumbnail}' >`
+            })
+        }
+        GetAllProduts()
+    </script>
+</body>
+
+</html>

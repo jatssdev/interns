@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <h1>Error Handling</h1>
+    <input type="text" id="input">
+    <p id="err"></p>
+    <button onclick="Check()">Check</button>
+    <script>
+        let Check = () => {
+            err.innerHTML = ''
+
+            try {
+                let val = input.value
+
+                if (isNaN(val)) {
+                    throw 'Input is Not a Number please Enter Valid Number!'
+                }
+                if (val > 100) throw 'value should be less then 100'
+
+                err.innerHTML = 'value is okay'
+                err.style.color = 'green'
+
+
+            } catch (e) {
+                console.log(e)
+                err.innerHTML = e
+                err.style.color = 'red'
+
+            }
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
