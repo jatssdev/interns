@@ -8,6 +8,7 @@ const Header = () => {
             <p><NavLink to={'/ref'}>Use Ref</NavLink></p>
             <p><NavLink to={'/state'}>Use State</NavLink></p>
             <p><NavLink to={'/effect'}>Use Effect</NavLink></p>
+            <p><NavLink to={'/form'}>Forms</NavLink></p>
 
 
 
