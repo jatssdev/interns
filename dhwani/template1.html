@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .navbar {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .navbar .links {
+            display: flex;
+
+        }
+
+        .navbar p {
+            padding: 15px 20px;
+        }
+
+        .navbar .links p:hover {
+            background-color: antiquewhite;
+            color: black;
+        }
+
+        .navbar .search:hover {
+            background-color: rgb(239, 15, 15);
+
+        }
+
+        .herosection img {
+            width: 100%;
+        }
+
+        .band {
+            width: 50%;
+            margin: 0 auto;
+            padding: 100px 0;
+
+            text-align: center;
+        }
+
+        .band .images {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+        }
+
+        .band img {
+            width: 100%;
+        }
+
+        .band .image {
+            width: 20%;
+        }
+
+        .band .content {
+            margin: 20px 0;
+            text-align: justify;
+        }
+
+        .band h3 {
+            margin: 20px 0;
+        }
+
+        .tour {
+            background-color: black;
+            color: white;
+
+        }
+
+        .tour .subTour {
+            width: 50%;
+
+            margin: 0 auto;
+        }
+
+        .tour .subTour h1 {
+            text-align: center;
+
+        }
+
+        .tour .subTour h3 {
+            text-align: center;
+        }
+
+        .tour .tourDates {
+            background-color: white;
+            color: black;
+        }
+
+        .tour .tourDates p {
+            border-bottom: 1px solid gray;
+            padding: 10px;
+        }
+
+        .tour .tourDates p span {
+            color: white;
+            background-color: tomato;
+            padding: 5px;
+        }
+
+        .contact {
+            width: 50%;
+            padding: 100px 0;
+            margin: 0 auto;
+
+        }
+
+        .contact h1 {
+            text-align: center;
+        }
+
+        .contact h3 {
+            text-align: center;
+        }
+
+        .contact .content {
+            display: flex;
+        }
+
+        .contact .content .location {
+            width: 50%;
+        }
+
+        .contact .content form {
+            width: 50%;
+        }
+
+        .contact input {
+            padding: 10px;
+            width: 100%;
+
+        }
+
+        .contact .nameEmail {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .contact .submit{
+            text-align: right;
+        }
+        .contact .submit button{
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="links">
+            <p>HOME</p>
+            <p>BAND</p>
+            <p>TOUR</p>
+            <p>CONTACT</p>
+            <p>MORE</p>
+        </div>
+        <p class="search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </p>
+    </div>
+    <div class="herosection">
+        <img src="https://www.w3schools.com/w3images/la.jpg" alt="">
+    </div>
+    <div class="band">
+        <h1>THE BAND</h1>
+        <h3>We love music</h3>
+        <p class="content">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <div class="images">
+            <div class="image">
+                <p>Name</p>
+                <img src="https://www.w3schools.com/w3images/bandmember.jpg" alt="">
+            </div>
+            <div class="image">
+                <p>Name</p>
+                <img src="https://www.w3schools.com/w3images/bandmember.jpg" alt="">
+            </div>
+            <div class="image">
+                <p>Name</p>
+                <img src="https://www.w3schools.com/w3images/bandmember.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="tour">
+        <div class="subTour">
+            <h1>TOUR DATES</h1>
+            <h3>Remember to book your tickets!</h3>
+            <div class="tourDates">
+                <p>September <span>Sold out</span> </p>
+                <p>October <span>Sold out</span> </p>
+                <p>November </p>
+            </div>
+        </div>
+    </div>
+    <div class="contact">
+        <h1>CONTACT</h1>
+        <h3>Fan? Drop a note!</h3>
+        <div class="content">
+            <div class="location">
+                <p>
+                    <i class="fa-solid fa-location-dot"></i> Chicago, US
+                </p>
+                <p>
+                    <i class="fa-solid fa-phone"></i> Chicago, US
+                </p>
+                <p>
+                    <i class="fa-solid fa-envelope"></i> Chicago, US
+                </p>
+            </div>
+            <form>
+                <div class="nameEmail">
+                    <input type="text" placeholder="Name">
+                    <input type="text" placeholder="Email">
+                </div>
+                <div>
+                    <input type="text" placeholder="Message">
+                </div>
+                <div class="submit">
+                    <button>Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
