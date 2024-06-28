@@ -7,20 +7,22 @@ const Home = () => {
 
     useEffect(() => {
         console.log(products)
-    })
+    }, [products])
     return (
-        <div className='wrapper'>
+        <div div className='wrapper' >
             {
-                products.map((product) => (<>
-                    <div className="product">
-                        <img src={product.img} alt="" />
-                        <h2>{product.title}</h2>
-                        <h3>₹{product.price}</h3>
-                        <button>Add To Cart</button>
-                    </div>
-                </>)
-                )}
-        </div>
+                products?.loading ? <p>loading...</p> :
+                    products.products.map((product) => (<>
+                        <div className="product">
+                            <img src={product.thumbnail} alt="" />
+                            <h2>{product.title}</h2>
+                            <h3>₹{product.price}</h3>
+                            <button>Add To Cart</button>
+                        </div>
+                    </>)
+                    )
+            }
+        </div >
     )
 }
 
