@@ -2,6 +2,9 @@ let express = require('express') //import express from 'express'
 let cors = require('cors')
 let app = express()
 app.use(cors())
+app.use(express.json())
+let User = require('./userModel')
+require('./db')
 let arr = [
     {
         "id": 1,
@@ -168,7 +171,6 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
     res.status(200)
     res.send('<h1>hlow about</h1>')
-
 })
 
 app.get('/products', (req, res) => {
@@ -176,6 +178,14 @@ app.get('/products', (req, res) => {
     res.send(arr)
 })
 
+app.post('/register', (req, res) => {
+    let newUser = User({
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password
+    })
+    res.send(req.body)
+})
 
 app.listen(9000, () => {
     console.log('surver is running on 9000')
