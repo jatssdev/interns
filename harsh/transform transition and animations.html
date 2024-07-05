@@ -10,8 +10,49 @@
             height: 100px;
             width: 100px;
             background-color: red;
-            transition: 1s;
-            /* transition-delay: 2s; */
+            /* transition: 1s; 
+            transition-delay: 2s; */
+            animation-name: harsh;
+            animation-duration: 3s;
+            /* animation-delay: 2s; */
+            animation-iteration-count: infinite;
+            /* animation-fill-mode: forwards; */
+            /* animation-direction: alternate-reverse; */
+
+
+
+
+        }
+
+        @keyframes harsh {
+            0% {
+                transform: translate(0, 0);
+
+                background-color: blue;
+            }
+
+            25% {
+                transform: translate(300px, 0);
+
+            }
+
+            50% {
+                transform: translate(300px, 300px);
+
+            }
+
+            75% {
+                transform: translate(0, 300px);
+
+            }
+
+            100% {
+                transform: translate(0, 0);
+
+                height: 200px;
+
+                background-color: green;
+            }
         }
 
         .box:hover {
