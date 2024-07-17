@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +17,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $data = ['jatin', 'magan', 'himali', 'devang'];
     return view('welcome', compact('data'));
-});
+})->name('index');
 
 Route::get('/about', function () {
     return view('about');
-});
+})->name('himali');
+
+Route::get('/register', function () {
+    return view('user.register');
+})->name('register');
+
+Route::post('/register', function (Request $request) {
+    dd($request->email);
+})->name('user.register');

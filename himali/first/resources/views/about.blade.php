@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.main')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+@push('title')
+    <title>Ecommerce - About</title>
+@endpush
 
-<body>
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <h1>About page</h1>
-
-</body>
-
-</html>
+@section('section')
+<h1>Hello world</h1>
+@endsection
