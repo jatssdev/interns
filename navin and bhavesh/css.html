@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- https://fontawesome.com/ -->
+    <!-- https://www.w3schools.com/w3css/tryw3css_templates_band.htm -->
     <style>
         * {
             padding: 0;
@@ -33,6 +38,10 @@
             padding: 10px;
             border-radius: 5px;
 
+        }
+
+        .navbar h1 span {
+            color: red;
         }
 
         .wrapper {
@@ -64,12 +73,17 @@
 
 <body>
     <div class="navbar">
-        <h1>Logo</h1>
+        <div>
+            <h1>
+                <span>L</span>ogo
+            </h1>
+            <!-- <p>Lorem, ipsum dolor.</p> -->
+        </div>
         <div class="links">
             <p>Home</p>
             <p>About</p>
             <p>Service</p>
-            <p>Contact</p>
+            <p><i class="fa-solid fa-user"></i>Contact</p>
         </div>
     </div>
 
