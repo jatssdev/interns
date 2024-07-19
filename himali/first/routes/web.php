@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -27,6 +28,4 @@ Route::get('/register', function () {
     return view('user.register');
 })->name('register');
 
-Route::post('/register', function (Request $request) {
-    dd($request->email);
-})->name('user.register');
+Route::post('/register', [userController::class, 'register'])->name('user.register');
