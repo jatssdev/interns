@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @push('title')
-    <title>Ecommerce - Register</title>
+    <title>Ecommerce - Login</title>
 @endpush
 @section('section')
 @if (session('error'))
@@ -18,13 +18,11 @@
         </span>
     </div>
 @endif
-<h1 class="text-center text-3xl my-4">Register</h1>
+<h1 class="text-center text-3xl my-4">Login</h1>
 
-<form action="{{route('user.register')}}" method="POST" class="border w-2/5 mx-auto p-8 ">
+<form action="{{route('user.login')}}" method="POST" class="border w-2/5 mx-auto p-8 ">
     @csrf
-    <div>
-        <input class="border w-full p-2 my-2" type="text" name="name" placeholder="Name">
-    </div>
+
     <div>
         <input class="border w-full p-2 my-2" type="text" name="email" placeholder="Email">
     </div>

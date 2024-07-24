@@ -9,7 +9,8 @@ class userController extends Controller
 {
     function register(Request $request)
     {
-        $existing = User::where('email', $request->email);
+        $existing = User::where('email', $request->email)->first();
+
         if ($existing) {
             return redirect()->back()->with('error', 'user already exists');
         } else {
@@ -25,5 +26,28 @@ class userController extends Controller
 
 
 
+
     }
+    function login(Request $request)
+    {
+
+        $user = User::where('email', $request->email)->first();
+        if ($user) {
+            if ($user->password == $request->password) {
+                $request->session()->put('user', $user);
+                return redirect()->route('index')->with('success', 'User Login Successfully!');
+            } else {
+                return redirect()->back()->with('error', 'wrong password');
+
+            }
+        } else {
+            return redirect()->back()->with('error', 'user not found');
+        }
+
+
+
+
+
+    }
+
 }
