@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="heading">Javascript</h1>
+    <button onmouseleave="Default()" onmouseover="Harsh()">Change Heading</button>
+    <button onclick="Harsh()">Ek or Button</button>
+    <script>
+        function Harsh() {
+            document.getElementById('heading').innerHTML = 'red'
+            document.getElementById('heading').style.backgroundColor = 'red'
+
+
+        }
+
+
+        function Default() {
+            document.getElementById('heading').innerHTML = 'Javascript'
+            document.getElementById('heading').style.backgroundColor = 'white'
+        }
+    </script>
+
+
+
+</body>
+
+</html>

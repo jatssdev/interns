@@ -1,0 +1,40 @@
+.box {
+
+    height: 300px;
+    border: 1px solid red;
+    background-color: gray;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    /* grid-template-rows: 100px 300px 1000px 400px; */
+
+}
+
+@media screen and (max-width:1200px) {
+    .wrapper {
+        grid-template-columns: 1fr 1fr 1fr;
+
+    }
+}
+
+@media screen and (max-width:900px) {
+    .wrapper {
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    .wrapper h1 {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .wrapper {
+        grid-template-columns: 1fr;
+
+    }
+
+}
