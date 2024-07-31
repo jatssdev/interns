@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    background-color: rgb(10, 10, 173);
+    color: white;
+    padding: 0 200px;
+}
+
+.header .nav1 {
+    display: flex;
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+.header .nav1 .col1,
+.header .nav1 .col2,
+.header .nav1 .col2 .icons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+}
+
+.border-first {
+    border-left: 1px solid gray;
+}
+
+.border-last {
+    border-right: 1px solid gray;
+}
+
+.header .nav1 p,
+.nav1 .p {
+    padding: 10px;
+}
+
+.products .product {
+    width: 25%;
+    border: 1px solid gray;
+}
+
+.products img {
+    width: 100%;
+}
+
+.products .product button {
+    width: 100%;
+    padding: 10px;
+    background-color: blue;
+    color: white;
+}
+.products {
+    display: flex;
+    gap: 20px;
+}
