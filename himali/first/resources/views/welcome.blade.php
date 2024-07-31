@@ -10,7 +10,6 @@
         <strong>Success!</strong> {{session('success')}}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-
 @endif
 
 <h1>Laravel First Project</h1>
@@ -19,4 +18,9 @@
         <h3>Hello {{$val}}</h3>
     @endforeach
 </div>
+
+@if (Auth::check())
+    <h1 class="text-3xl font-bold">Hello {{Auth::user()->name}}</h1>
+
+@endif
 @endsection

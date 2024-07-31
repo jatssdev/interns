@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class userController extends Controller
 {
@@ -17,29 +18,26 @@ class userController extends Controller
             User::create([
                 'name' => $request->name,
                 'email' => $request->email,
-                'password' => $request->password,
+                'password' => bcrypt($request->password),
             ]);
 
             return redirect()->route('index')->with('success', 'User Register Successfully!');
         }
 
-
-
-
-
     }
     function login(Request $request)
     {
+        $login = Auth::attempt([
+            'email' => $request->email,
+            'password' => $request->password,
+        ]);
 
-        $user = User::where('email', $request->email)->first();
-        if ($user) {
-            if ($user->password == $request->password) {
-                $request->session()->put('user', $user);
-                return redirect()->route('index')->with('success', 'User Login Successfully!');
-            } else {
-                return redirect()->back()->with('error', 'wrong password');
 
-            }
+
+        if ($login) {
+
+            return redirect()->route('index')->with('success', 'User Login Successfully!');
+
         } else {
             return redirect()->back()->with('error', 'user not found');
         }

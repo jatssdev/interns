@@ -3,14 +3,13 @@
     <div class="links">
         <p><a href="{{route('index')}}">Home</a></p>
         <p><a href="{{route('himali')}}">About</a></p>
-        @if (@session('user'))
-            <p><a href="#">Logout</a></p>
+        @if (Auth::check())
+            <p><a href="{{route('user.logout')}}">Logout</a></p>
         @else
             <div class="flex gap-3">
                 <p><a href="{{route('register')}}">Register</a></p>
                 <p><a href="{{route('login')}}">Login</a></p>
             </div>
         @endif
-
     </div>
 </div>
