@@ -3,29 +3,48 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 
 <body>
+    <button id="modebtn" onclick="dark()">Dark</button>
+
     <h1 id="heading">Javascript</h1>
     <button onmouseleave="Default()" onmouseover="Harsh()">Change Heading</button>
     <button onclick="Harsh()">Ek or Button</button>
     <script>
-        function Harsh() {
-            document.getElementById('heading').innerHTML = 'red'
-            document.getElementById('heading').style.backgroundColor = 'red'
+        // function Harsh() {
+        //     document.getElementById('heading').innerHTML = 'red'
+        //     document.getElementById('heading').style.backgroundColor = 'red'
+        // }
 
+
+        // function Default() {
+        //     document.getElementById('heading').innerHTML = 'Javascript'
+        //     document.getElementById('heading').style.backgroundColor = 'white'
+        // }
+        let darkMode = false;
+        function dark() {
+            if (darkMode) {
+                modebtn.innerHTML = 'dark'
+                document.body.style.color = 'black'
+                document.body.style.backgroundColor = 'white'
+            } else {
+                modebtn.innerHTML = 'light'
+
+                document.body.style.color = 'white'
+                document.body.style.backgroundColor = 'black'
+
+            }
+            darkMode = !darkMode
 
         }
 
 
-        function Default() {
-            document.getElementById('heading').innerHTML = 'Javascript'
-            document.getElementById('heading').style.backgroundColor = 'white'
-        }
+
+
     </script>
-
 
 
 </body>
