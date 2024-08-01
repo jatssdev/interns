@@ -1,0 +1,30 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 100px;
+}
+
+.navbar .contact {
+    display: flex;
+    text-align: right;
+    gap: 40px;
+}
+
+.navbar .logo img {
+    width: 220px;
+}
+
+.navbar .search {
+    width: 40%;
+}
+
+.navbar .search input {
+    width: 100%;
+    padding: 20px;
+}
