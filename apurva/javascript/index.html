@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .student {
+            box-shadow: 0 3px 10px rgb(220, 220, 220);
+            padding: 10px;
+            margin: 10px 0;
+            width: 300px;
+        }
+
+        .student img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Javascript</h1>
+    <div id="result"> </div>
+
+    <script>
+        let students = [
+            {
+                Mane: "John",
+                age: 20,
+                skill: 'mern stack',
+                img: 'https://m.media-amazon.com/images/I/31G1NouVxaL._SY300_SX300_.jpg'
+            },
+            {
+                Mane: "magan",
+                age: 21,
+                skill: 'android',
+                img: 'https://m.media-amazon.com/images/I/51ws0E8cnbL._SL1500_.jpg'
+            },
+            {
+                Mane: "chhagan",
+                age: 22,
+                skill: 'react',
+                img: 'https://m.media-amazon.com/images/I/31BMd11KciL._SY300_SX300_.jpg'
+            },
+
+        ]
+
+        students.map((x, i) => {
+            result.innerHTML += `<div class="student">
+                
+<img src="${x.img}" alt="">
+    <h2>${x.Mane}</h2>
+    <h3>Age ${x.age}</h3>
+    <p>Skill : ${x.skill}</p>
+</div>`
+        })
+    </script>
+</body>
+
+
+</html>
