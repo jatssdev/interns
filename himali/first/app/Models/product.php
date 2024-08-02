@@ -12,7 +12,11 @@ class product extends Model
         'img',
         'title',
         'price',
-        'category'
+        'category',
+        'img2',
+        'img3',
+        'img4',
+        'img5'
     ];
 
 }
