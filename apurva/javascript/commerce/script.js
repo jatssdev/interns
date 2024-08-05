@@ -323,13 +323,16 @@ const shoes = [
     },
 ];
 
+let cartArr = []
+let products = [...earbud, ...shoes]
+
 earbud.map((x, i) => {
     result.innerHTML += `<div class="product">
         
 <img src="${x.img}" alt="">
 <h2>${x.title}</h2>
 <h3>${x.price}</h3>
-<button>Add To Cart</button>
+<button onclick='AddToCart(${x.id})'>Add To Cart</button>
 
 </div>`
 })
@@ -339,7 +342,59 @@ shoes.map((x, i) => {
 <img src="${x.img}" alt="">
 <h2>${x.title}</h2>
 <h3>${x.price}</h3>
-<button>Add To Cart</button>
+<button onclick='AddToCart(${x.id})'>Add To Cart</button>
 
 </div>`
 })
+
+let cartRef = true
+
+
+function CartToggle() {
+    if (cartRef) {
+        cartElem.style.left = 0
+    } else {
+        cartElem.style.left = "-100%"
+    }
+    cartRef = !cartRef
+
+}
+
+
+function AddToCart(id) {
+    let p = products.find((x) => x.id === id)
+    cartArr.push(p)
+    cartElem.innerHTML = cartArr.map((x, i) => {
+        return `<div class="product">
+    <img src="${x.img}" alt="">
+   <div>
+    <h2>${x.title}</h2>
+    <h3>${x.price}</h3>
+   </div>
+    <button onclick='remove(${x.id})'>Remove</button>
+
+    </div>`
+    }).join('')
+    cartTotal.innerHTML = cartArr.length
+
+}
+
+function remove(id) {
+    let newArr = cartArr.filter((x) => x.id != id)
+
+    cartArr = newArr
+
+    cartElem.innerHTML = cartArr.map((x, i) => {
+        return `<div class="product">
+    <img src="${x.img}" alt="">
+   <div>
+    <h2>${x.title}</h2>
+    <h3>${x.price}</h3>
+   </div>
+    <button onclick='remove(${x.id})'>Remove</button>
+
+    </div>`
+    }).join('')
+    cartTotal.innerHTML = cartArr.length
+
+}
