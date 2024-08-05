@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+        }
+
+        .box {
+            box-shadow: inset 0 3px 10px gray, 0 3px 10px rgb(136, 136, 136);
+
+            width: 70px;
+            border-radius: 50px;
+            padding: 3px;
+
+
+        }
+
+        .roller {
+            height: 30px;
+            width: 30px;
+            background-color: gold;
+            transition: .3s;
+            border-radius: 100%;
+        }
+
+        input:checked+label .box .roller {
+            transform: translate(34px);
+            background-color: skyblue;
+
+        }
+
+        input {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="section">
+
+        <input type="checkbox" name="" id="magan">
+        <label for="magan">
+            <div class="box">
+                <div class="roller"></div>
+            </div>
+        </label>
+    </div>
+</body>
+
+</html>
