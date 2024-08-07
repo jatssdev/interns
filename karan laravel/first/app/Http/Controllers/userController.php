@@ -7,6 +7,31 @@ use Illuminate\Http\Request;
 
 class userController extends Controller
 {
+    function register(Request $request)
+    {
+
+
+    }
+    function login(Request $request)
+    {
+        $user = User::where('email', $request->email)->first();
+        if ($user) {
+
+            if ($user->password === $request->password) {
+                $request->session()->put('user', $user);
+
+                return redirect()->route('user.main')->with('success', 'Login Successfully');
+            } else {
+                return redirect()->back()->with('error', 'password not match');
+
+            }
+        } else {
+            return redirect()->back()->with('error', 'user not found');
+        }
+
+
+
+    }
 
     public function index()
     {

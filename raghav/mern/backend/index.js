@@ -10,12 +10,19 @@ app.get('/', (req, res) => {
     res.status(200)
     res.send('<h1>hlow</h1>')
 })
-app.get('/users', async (req, res) => {
-    let users = await User.find();
-    res.send(users)
+app.get('/users',
+    (req, res, next) => {
+        if (10 > 8) {
+            next()
+        } else {
+            res.send({ success: false, message: 'authentication failded' })
+        }
+    }, async (req, res, next) => {
+        let users = await User.find();
+        res.send(users)
 
 
-})
+    })
 app.get('/about', (req, res) => {
     res.status(200)
     res.send('<h1>hlow about</h1>')
@@ -45,6 +52,7 @@ app.post('/register', async (req, res) => {
         }
     }
 })
+
 app.post('/login', async (req, res) => {
     let user = await User.findOne({ email: req.body.email })
     if (user) {
