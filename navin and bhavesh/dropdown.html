@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .dropdown {
+            width: fit-content;
+            position: relative;
+            z-index: 10;
+            padding: 10px 20px;
+            background-color: red;
+        }
+
+        .dropdown .drop {
+            position: absolute;
+            width: 100%;
+            display: none;
+            left: 0;
+            top: 100%;
+            background-color: gray;
+        }
+
+        .dropdown .drop p {
+            padding: 10px;
+            border-bottom: 1px solid black;
+        }
+
+        .dropdown:hover .drop {
+            display: block;
+        }
+
+        .dropdown .drop p:hover {
+            background-color: white;
+        }
+
+        .main>img {
+            width: 100px;
+
+        }
+
+        .main {
+            position: relative;
+            width: fit-content;
+        }
+
+        .main .img {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            display: none;
+            width: 400px;
+        }
+
+        .main .img img {
+            width: 100%;
+        }
+        .main:hover .img{
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dropdown">
+        <p>Hover Over Me</p>
+        <div class="drop">
+            <p>Item 1</p>
+            <p>Item 1</p>
+            <p>Item 1</p>
+            <p>Item 1</p>
+            <p>Item 1</p>
+        </div>
+    </div>
+    <div class="main">
+        <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg" alt="">
+        <div class="img">
+            <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg" alt="">
+        </div>
+    </div>
+</body>
+
+</html>
