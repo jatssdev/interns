@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1 id="res">Result : 0</h1>
+
+    <input id="input1" type="text" placeholder="First Number">
+    <input id="input2" type="text" placeholder="Second Number">
+    <button onclick="Add()">Add</button>
+
+    <script>
+        // function Hello(name) {
+        //     return 'Hello ' + name
+        // }
+        // let value = Hello('jatin')
+        // let value2 = Hello('harsh')
+        // console.log(value)
+        // res.innerHTML = value2
+
+
+
+
+        function Add() {
+            let num1 = Number(input1.value)
+            let num2 = Number(input2.value)
+            let num = num1 + num2
+            res.innerHTML = " Result : " + num
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
