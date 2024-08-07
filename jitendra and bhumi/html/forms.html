@@ -1,0 +1,67 @@
+<!-- https://www.w3schools.com/html/html_forms.asp  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        form {
+            margin: 50px;
+        }
+
+        fieldset {
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="POST">
+        <fieldset>
+            <legend>User Form</legend>
+            <div>
+                <label for="name">Name</label>
+                <input name="name" type="text" id="name">
+            </div>
+            <div>
+                <label for="name">Email</label>
+                <input name="email" type="email" id="name">
+            </div>
+            <div>
+                <label for="name">Password</label>
+                <input name="email" type="password" id="name">
+            </div>
+            <div>
+                <p>I Have A : <label for="bike">Bike</label><input type="checkbox" name="" id=""> ,<label
+                        for="bike">Car</label><input type="checkbox" name="" id="">,<la bel for="bike">Boat</la><input
+                        type="checkbox" name="" id=""></p>
+
+            </div>
+            <div>
+                <p>Gender : <label for="male">Male </label><input type="radio" name="gender" id=""> <label
+                        for="male">Female
+                    </label><input type="radio" name="gender" id=""></p>
+            </div>
+            <div>
+                <select name="state" id="">
+                    <option value="">Select State</option>
+                    <option value="guj">Gujarat</option>
+                    <option value="">Maharastra</option>
+                    <option value="">Bihar</option>
+                </select>
+            </div>
+            <div>
+                <input type="submit" value="Register">
+            </div>
+        </fieldset>
+    </form>
+</body>
+
+</html>
