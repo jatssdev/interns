@@ -5,7 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
         .product {
 
             padding: 20px;
@@ -25,6 +34,10 @@
             border-radius: 5px;
         }
 
+        .product button:hover {
+            background-color: blue;
+        }
+
         .products {
             display: grid;
             gap: 20px;
@@ -41,59 +54,67 @@
 
         .heading {
             text-align: center;
+            margin-top: 100px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 50px;
+            background-color: black;
+            align-items: center;
+            height: 80px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            color: white;
+        }
+
+        .cartElem {
+            width: 40%;
+            position: fixed;
+            top: 0;
+            transition: .5s;
+            left: -40%;
+            overflow: auto;
+            height: 100vh;
+            background-color: rgb(228, 223, 223);
+        }
+
+        .cartElem.open {
+            left: 0;
+        }
+
+        .cartElem .product {
+            display: grid;
+            grid-template-columns: 100px 50% auto auto;
+            align-items: center;
+            gap: 15px;
+            margin: 20px;
+            box-shadow: 0 3px 10px rgb(231, 231, 231);
+            background-color: white;
         }
     </style>
 </head>
 
 <body>
-    <!-- array  -->
-    <h3>Array</h3>
-    <ol id="wrapper">
-
-    </ol>
-
-
-    <!-- object  -->
-    <h3>Object</h3>
-
-    <div id="wrapper2">
+    <div class="navbar">
+        <h1>Harsh</h1>
+        <div class="cart">
+            <i onclick="CartToggle()" class="fa-shopping-bag fa-solid "></i>
+        </div>
+    </div>
+    <div class="cartElem" id="cartElem">
 
     </div>
-
-    <hr>
     <h1 class="heading">Earbuds</h1>
     <div id="products" class="products">
-
     </div>
     <h1 class="heading">Tshirts</h1>
     <div id="products2" class="products">
-
     </div>
-
     <script>
-        // arrays 
-        let students = [
-            'jatin', 'harsh', 'magan', 'chhagan', 'lagan', 'raman', 'chaman'
-        ]
-
-
-        for (let i = 0; i < students.length; i++) {
-            wrapper.innerHTML += '<li>' + students[i] + '</li>'
-        }
-
-        // Objects
-
-        let user = {
-            name: 'jatin',
-            age: 21,
-            skill: 'mern stack developer',
-            img: 'https://qph.cf2.quoracdn.net/main-qimg-838c14319669f08f0bb5007f433e1907'
-        }
-        wrapper2.innerHTML = `I<img src="${user.img}" >`
-
-
-        // task 
-
         const earbuds = [
             {
                 id: 1,
@@ -366,12 +387,15 @@
                 category: "tshirt",
             },
         ];
+
+        let allproducts = [...tshirt, ...earbuds]
+        let cart = []
         for (let i = 0; i < earbuds.length; i++) {
             products.innerHTML += ` <div class="product">
         <img src="${earbuds[i].img}" alt="">
         <h2>${earbuds[i].title}</h2>
         <h3>₹${earbuds[i].price}</h3>
-        <button>Add to Cart</button>
+        <button onclick='addtocart(${earbuds[i].id})'>Add to Cart</button>
     </div>`
         }
         for (let i = 0; i < tshirt.length; i++) {
@@ -379,8 +403,26 @@
         <img src="${tshirt[i].img}" alt="">
         <h2>${tshirt[i].title}</h2>
         <h3>₹${tshirt[i].price}</h3>
-        <button>Add to Cart</button>
+        <button onclick='addtocart(${tshirt[i].id})'>Add to Cart</button>
     </div>`
+        }
+
+        function CartToggle() {
+            cartElem.classList.toggle('open')
+        }
+
+        function addtocart(id) {
+            let product = allproducts.find((x) => x.id == id)
+            cart.push(product)
+            cartElem.innerHTML = '';
+            for (let i = 0; i < cart.length; i++) {
+                cartElem.innerHTML += ` <div class="product">
+        <img src="${cart[i].img}" alt="">
+        <h2>${cart[i].title}</h2>
+        <h3>₹${cart[i].price}</h3>
+        <button onclick='addtocart(${cart[i].id})'>Remove</button>
+    </div>`
+            }
         }
     </script>
 
