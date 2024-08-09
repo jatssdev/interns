@@ -6,8 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
         .product {
-            width: 400px;
+
             padding: 15px;
             box-shadow: 0 3px 10px rgb(213, 213, 213);
         }
@@ -15,16 +21,75 @@
         .product img {
             width: 100%;
         }
+
+        .products {
+            display: grid;
+            gap: 20px;
+            padding: 50px;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 50px;
+            background-color: black;
+            color: white;
+            height: 70px;
+            align-items: center;
+        }
+
+        .cartElem {
+            width: 40%;
+            background-color: rgb(230, 223, 223);
+            height: 100vh;
+            overflow: auto;
+            position: fixed;
+            top: 0;
+            transition: .5s;
+            left: -100%;
+        }
+
+        .cartElem .product {
+            background-color: white;
+            display: grid;
+            align-items: center;
+            margin: 20px;
+            grid-template-columns: 100px 50% auto auto;
+        }
+
+        .cartElem .product h2 {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .products .product h2 {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .cartElem.active {
+            left: 0;
+        }
     </style>
 </head>
 
 <body>
-    <div id="product1" class="product">
+    <div class="navbar">
+        <h1>Vitendra</h1>
+        <button onclick="cartToggle()">Cart</button>
+    </div>
+    <div id="cartElem" class="cartElem">
 
     </div>
-    <div id="product2" class="product">
+    <div id="wrapper" class="products">
 
     </div>
+
 
     <script>
         const earbud = [
@@ -194,15 +259,52 @@
             },
         ];
 
-        product1.innerHTML = `<img src="${earbud[0].img}" alt="">
-    <h2>${earbud[0].title}</h2>
-    <h3>${earbud[0].price}</h3>
-    <button>Add TO Cart</button>`
+        //     product1.innerHTML = `<img src="${earbud[0].img}" alt="">
+        // <h2>${earbud[0].title}</h2>
+        // <h3>${earbud[0].price}</h3>
+        // <button>Add TO Cart</button>`
 
-        product2.innerHTML = `<img src="${earbud[1].img}" alt="">
-    <h2>${earbud[1].title}</h2>
-    <h3>${earbud[1].price}</h3>
-    <button>Add TO Cart</button>`
+        //     product2.innerHTML = `<img src="${earbud[1].img}" alt="">
+        // <h2>${earbud[1].title}</h2>
+        // <h3>${earbud[1].price}</h3>
+        // <button>Add TO Cart</button>`
+
+
+        // for (let i = 0; i < 10; i++) {
+        //     wrapper.innerHTML += `<div class="product"><img src="${earbud[i].img}" alt="">
+        // <h2>${earbud[i].title}</h2>
+        // <h3>${earbud[i].price}</h3>
+        // <button>Add TO Cart</button></div>`
+        // }
+
+        let cartArr = []
+
+        wrapper.innerHTML = earbud.map((x) => {
+            return `<div class="product"><img src="${x.img}" alt="">
+        <h2>${x.title}</h2>
+        <h3>${x.price}</h3>
+        <button onclick="AddToCart(${x.id})">Add TO Cart</button></div>`
+        }).join('')
+
+
+        function cartToggle() {
+            cartElem.classList.toggle('active')
+        }
+
+        function AddToCart(id) {
+            let product = earbud.find((x) => x.id == id)
+            cartArr.push(product)
+
+            cartElem.innerHTML = cartArr.map((x) => {
+                return `<div class="product"><img src="${x.img}" alt="">
+        <h2>${x.title}</h2>
+        <h3>${x.price}</h3>
+        <button onclick="AddToCart(${x.id})">Remove</button></div>`
+            }).join('')
+
+        }
+
+
 
     </script>
 
