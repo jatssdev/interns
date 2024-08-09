@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .dropdown {
+            position: relative;
+            background-color: black;
+            color: white;
+            width: fit-content;
+            padding: 10px;
+        }
+
+
+        .dropdown .drop {
+            position: absolute;
+            background-color: gray;
+            width: 100%;
+            left: 0;
+            display: none;
+            top: 100%;
+        }
+
+        .drop p {
+            padding: 10px;
+            border-bottom: 1px solid black;
+        }
+
+        .dropdown:hover .drop {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dropdown">
+        <p>Hover Me</p>
+        <div class="drop">
+            <p>Item 1</p>
+            <p>Item 1</p>
+            <p>Item 1</p>
+            <p>Item 1</p>
+        </div>
+    </div>
+</body>
+
+</html>
