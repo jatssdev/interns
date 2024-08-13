@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            height: 70px;
+            padding: 0 50px;
+            justify-content: space-between;
+        }
+
+        .sidebar {
+            width: 40%;
+            background-color: gray;
+            height: 100vh;
+            position: fixed;
+            transition: .5s;
+            top: 0;
+            left: -40%;
+        }
+
+        #close {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar" id="sidebar">
+
+    </div>
+    <div class="navbar">
+        <h1>Navbar</h1>
+        <div>
+            <button id="open" onclick="SideOpen()">Open</button>
+            <button id="close" onclick="Sideclose()">Close</button>
+        </div>
+    </div>
+    <h1 id="heading">Javascript</h1>
+    <button onclick="Hello()">Click</button>
+    <button onclick="Reset()">Reset</button>
+    <hr>
+    <img id="image" src="https://www.w3schools.com/js/pic_bulboff.gif" alt="">
+    <button onclick="On()">On</button>
+    <button onclick="Off()">Off</button>
+
+
+
+    <script>
+        function Hello() {
+            document.getElementById('heading').innerHTML = 'Hello world'
+            document.getElementById('heading').style.backgroundColor = 'blue'
+
+        }
+        function Reset() {
+            document.getElementById('heading').innerHTML = 'Javascript'
+            document.getElementById('heading').style.backgroundColor = 'white'
+
+        }
+        function On() {
+            document.getElementById('image').src = 'https://www.w3schools.com/js/pic_bulbon.gif'
+        }
+        function Off() {
+            document.getElementById('image').src = 'https://www.w3schools.com/js/pic_bulboff.gif'
+        }
+        function SideOpen() {
+            document.getElementById('sidebar').style.left = '0'
+            document.getElementById('open').style.display = 'none'
+            document.getElementById('close').style.display = 'block'
+
+
+        }
+        function Sideclose() {
+            document.getElementById('sidebar').style.left = '-40%'
+            document.getElementById('close').style.display = 'none'
+            document.getElementById('open').style.display = 'block'
+
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
