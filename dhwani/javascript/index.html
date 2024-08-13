@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            width: 100px;
+            position: relative;
+            left: -100px;
+            transition: .5s;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="heading">Javascript</h1>
+    <button onclick="Hello()">Click</button>
+    <hr>
+    <img id="bulbimg" src="https://www.w3schools.com/js/pic_bulboff.gif" alt="">
+    <button onclick="On()">bulb on</button>
+    <button onclick="Off()">bulb off</button>
+    <hr>
+    <div class="box" id="box">
+    </div>
+    <button onclick="BoxMove()">Click</button>
+
+    <script>
+        function Hello() {
+            document.getElementById('heading').innerHTML = 'Hello world'
+            document.getElementById('heading').style.color = 'red'
+        }
+
+        function On() {
+            document.getElementById('bulbimg').src = 'https://www.w3schools.com/js/pic_bulbon.gif'
+        }
+        function Off() {
+            document.getElementById('bulbimg').src = 'https://www.w3schools.com/js/pic_bulboff.gif'
+        }
+        function BoxMove() {
+            document.getElementById('box').style.left = '0'
+        }
+    </script>
+</body>
+
+</html>
