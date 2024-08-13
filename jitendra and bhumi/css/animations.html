@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: jitendra;
+            animation-duration: 3s;
+            /* animation-iteration-count: infinite; */
+            /* animation-delay: 2s; */
+            /* animation-direction: alternate-reverse; */
+            animation-fill-mode: forwards;
+
+        }
+
+        @keyframes jitendra {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            25% {
+                transform: translate(400px, 0) rotate(90deg);
+
+            }
+
+            50% {
+                transform: translate(400px, 400px) rotate(180deg);
+
+            }
+
+            75% {
+                transform: translate(0, 400px) rotate(270deg);
+
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+                background-color: blue;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+    </div>
+</body>
+
+</html>

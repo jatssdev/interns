@@ -37,6 +37,11 @@
 
         img {
             width: 100%;
+            transition: .5s;
+        }
+
+        .product:hover img {
+            transform: scale(1.2);
         }
 
         .product {
@@ -66,6 +71,43 @@
             gap: 20px;
             padding: 50px;
         }
+
+        .product .img {
+            overflow: hidden;
+        }
+
+        .dropdown {
+            background-color: black;
+            color: white;
+            width: fit-content;
+            position: relative;
+
+        }
+
+        .dropdown .btn {
+            padding: 10px 15px;
+            border-bottom: 1px solid white;
+        }
+
+        .drop {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .drop p {
+            padding: 8px;
+            border-bottom: 1px solid white;
+            background-color: gray;
+
+        }
+
+        .dropdown:hover .drop {
+            display: block;
+        }
     </style>
 </head>
 
@@ -84,33 +126,50 @@
         </div>
     </div>
 
+    <div class="dropdown">
+        <p class="btn"> Click Me</p>
+        <div class="drop">
+            <p>Item 1</p>
+            <p>Item 1</p>
+            <p>Item 1</p>
+            <p>Item 1</p>
+        </div>
+    </div>
 
     <div class="wrapper">
 
         <div class="product">
-            <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
-                alt="">
+            <div class="img">
+                <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
+                    alt="">
+            </div>
             <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut!</h2>
             <h3><del>₹999</del> <span>₹499</span> </h3>
             <button>Add To Cart</button>
         </div>
         <div class="product">
-            <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
-                alt="">
+            <div class="img">
+                <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
+                    alt="">
+            </div>
             <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut!</h2>
             <h3><del>₹999</del> <span>₹499</span> </h3>
             <button>Add To Cart</button>
         </div>
         <div class="product">
-            <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
-                alt="">
+            <div class="img">
+                <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
+                    alt="">
+            </div>
             <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut!</h2>
             <h3><del>₹999</del> <span>₹499</span> </h3>
             <button>Add To Cart</button>
         </div>
         <div class="product">
-            <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
-                alt="">
+            <div class="img">
+                <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
+                    alt="">
+            </div>
             <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut!</h2>
             <h3><del>₹999</del> <span>₹499</span> </h3>
             <button>Add To Cart</button>
@@ -119,68 +178,79 @@
 
     </div>
 
-
     <div class="wrapper">
 
         <div class="product">
-            <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
-                alt="">
+            <div class="img">
+                <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
+                    alt="">
+            </div>
             <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut!</h2>
             <h3><del>₹999</del> <span>₹499</span> </h3>
             <button>Add To Cart</button>
         </div>
         <div class="product">
-            <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
-                alt="">
+            <div class="img">
+                <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
+                    alt="">
+            </div>
             <h>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut!</h>
             <h3><del>₹999</del> <span>₹499</span> </h3>
             <button>Add To Cart</button>
         </div>
         <div class="product">
-            <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
-                alt="">
+            <div class="img">
+                <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
+                    alt="">
+            </div>
             <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut!</h2>
             <h3><del>₹999</del> <span>₹499</span> </h3>
             <button>Add To Cart</button>
         </div>
         <div class="product">
-            <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
-                alt="">
+            <div class="img">
+                <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
+                    alt="">
+            </div>
             <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut!</h2>
             <h3><del>₹999</del> <span>₹499</span> </h3>
             <button>Add To Cart</button>
         </div>
-
-
     </div>
-
-
     <div class="wrapper">
 
         <div class="product">
-            <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
-                alt="">
+            <div class="img">
+                <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
+                    alt="">
+            </div>
             <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut!</h2>
             <h3><del>₹999</del> <span>₹499</span> </h3>
             <button>Add To Cart</button>
         </div>
         <div class="product">
-            <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
-                alt="">
+            <div class="img">
+                <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
+                    alt="">
+            </div>
             <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut!</h2>
             <h3><del>₹999</del> <span>₹499</span> </h3>
             <button>Add To Cart</button>
         </div>
         <div class="product">
-            <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
-                alt="">
+            <div class="img">
+                <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
+                    alt="">
+            </div>
             <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut!</h2>
             <h3><del>₹999</del> <span>₹499</span> </h3>
             <button>Add To Cart</button>
         </div>
         <div class="product">
-            <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
-                alt="">
+            <div class="img">
+                <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
+                    alt="">
+            </div>
             <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut!</h2>
             <h3><del>₹999</del> <span>₹499</span> </h3>
             <button>Add To Cart</button>
