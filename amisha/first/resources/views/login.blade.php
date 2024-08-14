@@ -6,12 +6,16 @@
 @endpush
 @section('main')
 
+<h3>
+    @if (session('error'))
+        {{session('error')}}
+    @endif
+</h3>
+
 <div class="register-container">
     <h2>Register</h2>
-    <form action="{{route('storeuser')}}" method="post">
+    <form action="{{route('user.login')}}" method="post">
         @csrf
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
 
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
