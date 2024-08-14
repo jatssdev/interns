@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\userController;
 use App\Models\User;
 
 use Illuminate\Http\Request;
@@ -8,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('index');
 
 Route::get('/about', function () {
     return view('about');
@@ -16,18 +17,8 @@ Route::get('/about', function () {
 Route::get('/register', function () {
     return view('register');
 });
+Route::get('/login', [userController::class, 'log'])->name('login');
+Route::get('/logout', [userController::class, 'logout']);
 
-Route::post('/register', function (Request $request) {
-
-    $user = User::create([
-        'name' => $request->name,
-        'email' => $request->email,
-        'password' => $request->password,
-    ]);
-    if ($user) {
-        return redirect()->back()->with('msg', 'user registered successfully');
-    } else {
-        return redirect()->back()->with('msg', 'user register failed');
-
-    }
-});
+Route::post('/register', [userController::class, 'register']);
+Route::post('/login', [userController::class, 'login']);

@@ -1,19 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.main')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
 
-<body>
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/register">Register</a>
-
-    <h1>Home Page</h1>
-
-</body>
-
-</html>
+@section('main')
+@if (Auth::check())
+    <h3>Hello {{Auth::user()->name}}</h3>
+@endif
+<h1>Home Page</h1>
+<p>Lorem, ipsum dolor.</p>
+@endsection
