@@ -81,10 +81,10 @@
 <body>
     <div class="navbar">
         <h1>Vitendra</h1>
-        <button onclick="cartToggle()">Cart</button>
+        <button onclick="cartToggle()">Cart <span id="cartTotal">0</span></button>
     </div>
     <div id="cartElem" class="cartElem">
-
+        cart is blank
     </div>
     <div id="wrapper" class="products">
 
@@ -299,8 +299,25 @@
                 return `<div class="product"><img src="${x.img}" alt="">
         <h2>${x.title}</h2>
         <h3>${x.price}</h3>
-        <button onclick="AddToCart(${x.id})">Remove</button></div>`
+        <button onclick="remove(${x.id})">Remove</button></div>`
             }).join('')
+            cartTotal.innerHTML = cartArr.length
+
+        }
+        function remove(id) {
+            let products = cartArr.filter((x) => x.id != id)
+            cartArr = products
+            if (cartArr.length) {
+                cartElem.innerHTML = cartArr.map((x) => {
+                    return `<div class="product"><img src="${x.img}" alt="">
+        <h2>${x.title}</h2>
+        <h3>${x.price}</h3>
+        <button onclick="remove(${x.id})">Remove</button></div>`
+                }).join('')
+            } else {
+                cartElem.innerHTML = 'cart is blank'
+            }
+            cartTotal.innerHTML = cartArr.length
 
         }
 
