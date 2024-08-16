@@ -526,7 +526,9 @@ function cartToggle() {
 }
 
 function AddToCart(id) {
-    let product = products.find((x) => x.id == id)
+    let product = products.find((x) => {
+        return x.id == id
+    })
     cartArr.push(product)
     renderCart()
 }

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 20px;
+            padding: 50px;
+        }
+
+        .wrapper img {
+            width: 100%;
+        }
+
+        .wrapper .product {
+            box-shadow: 0 3px 10px rgb(228, 228, 228);
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Products</h1>
+    <div class="wrapper">
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/71P5TSBvg9L._UL1500_.jpg" alt="">
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore.</h2>
+            <h3>₹699</h3>
+            <button>Add To Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/71P5TSBvg9L._UL1500_.jpg" alt="">
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore.</h2>
+            <h3>₹699</h3>
+            <button>Add To Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/71P5TSBvg9L._UL1500_.jpg" alt="">
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore.</h2>
+            <h3>₹699</h3>
+            <button>Add To Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/71P5TSBvg9L._UL1500_.jpg" alt="">
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore.</h2>
+            <h3>₹699</h3>
+            <button>Add To Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/71P5TSBvg9L._UL1500_.jpg" alt="">
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore.</h2>
+            <h3>₹699</h3>
+            <button>Add To Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/71P5TSBvg9L._UL1500_.jpg" alt="">
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore.</h2>
+            <h3>₹699</h3>
+            <button>Add To Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/71P5TSBvg9L._UL1500_.jpg" alt="">
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore.</h2>
+            <h3>₹699</h3>
+            <button>Add To Cart</button>
+        </div>
+    </div>
+
+
+    <div id="studentsWrapper">
+
+    </div>
+
+    <script>
+        let students = [
+            {
+                name: 'jhanvi',
+                age: 21,
+                image: 'https://render.fineartamerica.com/images/rendered/default/poster/7/8/break/images/artworkimages/medium/3/doremon-deepak-pengoria.jpg',
+                skill: 'react developer'
+            },
+            {
+                name: 'harsh',
+                age: 20,
+                image: 'https://qph.cf2.quoracdn.net/main-qimg-23812c66bb41fe5706207f7a9049902c',
+                skill: 'front-end developer'
+            },
+            {
+                name: 'jatin',
+                age: 22,
+                image: 'https://e7.pngegg.com/pngimages/96/298/png-clipart-shin-chan-illustration-crayon-shin-chan-shinnosuke-nohara-drawing-donald-duck-animated-film-donald-duck-comics-child-thumbnail.png',
+                skill: 'mern stack developer'
+            }
+        ]
+
+        studentsWrapper.innerHTML = students.map((student) => {
+            return `<div class="product">
+            <img src="${student.image}" alt="">
+            <h2>${student.name}</h2>
+            <h3>Skill : ${student.skill}</h3>
+            <button>Add To Cart</button>
+        </div>`
+        })
+
+
+        // functions 
+
+        // function Hello(name) {
+        //     return 'hello ' + name
+        // }
+
+        // let Magan = (name) => 'hello ' + name
+
+        // console.log(Magan('chhagan'))
+
+    </script>
+</body>
+
+</html>
