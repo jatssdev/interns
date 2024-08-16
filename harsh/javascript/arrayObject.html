@@ -103,6 +103,7 @@
         <h1>Harsh</h1>
         <div class="cart">
             <i onclick="CartToggle()" class="fa-shopping-bag fa-solid "></i>
+            <span id="carttotal">0</span>
         </div>
     </div>
     <div class="cartElem" id="cartElem">
@@ -420,13 +421,28 @@
         <img src="${cart[i].img}" alt="">
         <h2>${cart[i].title}</h2>
         <h3>₹${cart[i].price}</h3>
-        <button onclick='addtocart(${cart[i].id})'>Remove</button>
+        <button onclick='remove(${cart[i].id})'>Remove</button>
     </div>`
             }
+            carttotal.innerHTML = cart.length
+
+        }
+
+        function remove(id) {
+            let pro = cart.filter((x) => x.id != id)
+            cart = pro
+            cartElem.innerHTML = ''
+
+            for (let i = 0; i < cart.length; i++) {
+                cartElem.innerHTML += ` <div class="product">
+        <img src="${cart[i].img}" alt="">
+        <h2>${cart[i].title}</h2>
+        <h3>₹${cart[i].price}</h3>
+        <button onclick='remove(${cart[i].id})'>Remove</button>
+    </div>`}
+            carttotal.innerHTML = cart.length
         }
     </script>
-
-
 </body>
 
 </html>
