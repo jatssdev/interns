@@ -1,3 +1,4 @@
+<!-- task : https://fiama-demo.myshopify.com/ -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,7 +47,7 @@
 
         .product {
             padding: 15px;
-            width: calc(25% - 17px);
+
             border: 1px solid black;
         }
 
@@ -67,8 +68,9 @@
         }
 
         .wrapper {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            /* grid-template-rows: 100px 400px; */
             gap: 20px;
             padding: 50px;
         }
@@ -108,32 +110,6 @@
 
         .dropdown:hover .drop {
             display: block;
-        }
-
-        @media screen and (max-width:1200px) {
-            .product {
-                width: calc(33.33% - 15.33px);
-            }
-        }
-
-        @media screen and (max-width:800px) {
-            .product {
-                width: calc(50% - 10px);
-            }
-
-            .navbar {
-                display: none;
-            }
-        }
-
-        @media screen and (max-width:500px) {
-            .product {
-                width: calc(100%);
-            }
-
-            .wrapper {
-                padding: 10px;
-            }
         }
     </style>
 </head>
