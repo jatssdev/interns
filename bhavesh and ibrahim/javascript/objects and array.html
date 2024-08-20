@@ -85,6 +85,11 @@
 
         ]
 
+        res.innerHTML = students.map(function (kaibi) {
+            return '<p>Hello ' + kaibi + '</p>'
+        }).join('')
+
+
         const earbud = [
             {
                 id: 1,
@@ -267,78 +272,78 @@
         // </div> `
         //         }
 
-        for (let i = 0; i < earbud.length; i++) {
-            res.innerHTML += `<div class="earbud">
-        <h2>Id: ${earbud[i].id}</h2>
-        <br>
-    <h2>Title: ${earbud[i].title}</h2>
-    <br>
+        //     for (let i = 0; i < earbud.length; i++) {
+        //         res.innerHTML += `<div class="earbud">
+        //     <h2>Id: ${earbud[i].id}</h2>
+        //     <br>
+        // <h2>Title: ${earbud[i].title}</h2>
+        // <br>
 
-    <div><p><img src='${earbud[i].img}'></p>
-    
-    <p>price: ${earbud[i].price}</p>
-    <p>discount: ${earbud[i].discount}</p>
-    <p>quantity: ${earbud[i].qty}</p>
-    <p>category: ${earbud[i].category}</p>
-    <br><hr><br>
-    <button> Add To Cart</button>
-    </div>`
+        // <div><p><img src='${earbud[i].img}'></p>
 
-            // <div class="earbud2">
-            //     <h2>Id: ${earbud[i].id}</h2>
-            //     <br>
-            // <h2>Title: ${earbud[i].title}</h2>
-            // <br>
-            // <p><img src='${earbud[i].img2}'></p>
-            // <p>price: ${earbud[i].price}</p>
-            // <p>discount: ${earbud[i].discount}</p>
-            // <p>quantity: ${earbud[i].qty}</p>
-            // <p>category: ${earbud[i].category}</p>
-            // <br><hr><br>
-            // </div>`
+        // <p>price: ${earbud[i].price}</p>
+        // <p>discount: ${earbud[i].discount}</p>
+        // <p>quantity: ${earbud[i].qty}</p>
+        // <p>category: ${earbud[i].category}</p>
+        // <br><hr><br>
+        // <button> Add To Cart</button>
+        // </div>`
 
-            // `<div class="earbud3">
-            //     <h2>Id: ${earbud[i].id}</h2>
-            //     <br>
-            // <h2>Title: ${earbud[i].title}</h2>
-            // <br>
-            // <p><img src='${earbud[i].img3}'></p>
-            // <p>price: ${earbud[i].price}</p>
-            // <p>discount: ${earbud[i].discount}</p>
-            // <p>quantity: ${earbud[i].qty}</p>
-            // <p>category: ${earbud[i].category}</p>
-            // <br><hr><br>
-            // </div>`
+        // <div class="earbud2">
+        //     <h2>Id: ${earbud[i].id}</h2>
+        //     <br>
+        // <h2>Title: ${earbud[i].title}</h2>
+        // <br>
+        // <p><img src='${earbud[i].img2}'></p>
+        // <p>price: ${earbud[i].price}</p>
+        // <p>discount: ${earbud[i].discount}</p>
+        // <p>quantity: ${earbud[i].qty}</p>
+        // <p>category: ${earbud[i].category}</p>
+        // <br><hr><br>
+        // </div>`
 
-            // `<div class="earbud4">
-            //     <h2>Id: ${earbud[i].id}</h2>
-            //     <br>
-            // <h2>Title: ${earbud[i].title}</h2>
-            // <br>
-            // <p><img src='${earbud[i].img4}'></p>
-            // <p>price: ${earbud[i].price}</p>
-            // <p>discount: ${earbud[i].discount}</p>
-            // <p>quantity: ${earbud[i].qty}</p>
-            // <p>category: ${earbud[i].category}</p>
-            // <br><hr><br>
-            // </div>`
+        // `<div class="earbud3">
+        //     <h2>Id: ${earbud[i].id}</h2>
+        //     <br>
+        // <h2>Title: ${earbud[i].title}</h2>
+        // <br>
+        // <p><img src='${earbud[i].img3}'></p>
+        // <p>price: ${earbud[i].price}</p>
+        // <p>discount: ${earbud[i].discount}</p>
+        // <p>quantity: ${earbud[i].qty}</p>
+        // <p>category: ${earbud[i].category}</p>
+        // <br><hr><br>
+        // </div>`
 
-            // `<div class="earbud5">
-            //     <h2>Id: ${earbud[i].id}</h2>
-            //     <br>
-            // <h2>Title: ${earbud[i].title}</h2>
-            // <br>
-            // <p><img src='${earbud[i].img5}'></p>
-            // <p>price: ${earbud[i].price}</p>
-            // <p>discount: ${earbud[i].discount}</p>
-            // <p>quantity: ${earbud[i].qty}</p>
-            // <p>category: ${earbud[i].category}</p>
-            // <br><hr><br>
-            // </div>`
-        }
-        for (let j = 0; j < students.length; j++) {
-            res2.innerHTML += `<p>${students[j]}</p>`
-        }
+        // `<div class="earbud4">
+        //     <h2>Id: ${earbud[i].id}</h2>
+        //     <br>
+        // <h2>Title: ${earbud[i].title}</h2>
+        // <br>
+        // <p><img src='${earbud[i].img4}'></p>
+        // <p>price: ${earbud[i].price}</p>
+        // <p>discount: ${earbud[i].discount}</p>
+        // <p>quantity: ${earbud[i].qty}</p>
+        // <p>category: ${earbud[i].category}</p>
+        // <br><hr><br>
+        // </div>`
+
+        // `<div class="earbud5">
+        //     <h2>Id: ${earbud[i].id}</h2>
+        //     <br>
+        // <h2>Title: ${earbud[i].title}</h2>
+        // <br>
+        // <p><img src='${earbud[i].img5}'></p>
+        // <p>price: ${earbud[i].price}</p>
+        // <p>discount: ${earbud[i].discount}</p>
+        // <p>quantity: ${earbud[i].qty}</p>
+        // <p>category: ${earbud[i].category}</p>
+        // <br><hr><br>
+        // </div>`
+        // }
+        // for (let j = 0; j < students.length; j++) {
+        //     res2.innerHTML += `<p>${students[j]}</p>`
+        // }
 
     </script>
 
