@@ -1,5 +1,7 @@
 let express = require('express') //import express from 'express'
 let cors = require('cors')
+let jwt = require('jsonwebtoken') //import jwt from 'jsonwebtoken'
+
 let app = express()
 app.use(cors())
 app.use(express.json())
@@ -9,6 +11,29 @@ let bcrypt = require('bcryptjs')
 app.get('/', (req, res) => {
     res.status(200)
     res.send('<h1>hlow</h1>')
+})
+async function Auth(req, res, next) {
+    try {
+        let token = req.params.token;
+        let userid = jwt.verify(token, 'hellomynameisjatin');
+        let user = await User.findById(userid.id)
+        req.user = user
+        next()
+    } catch (e) {
+        res.send({ success: false, message: e })
+    }
+
+
+}
+
+
+
+app.get('/auth/:token', Auth, (req, res) => {
+    res.send({
+        success: true,
+        user: req.user,
+        message: 'user auth success'
+    })
 })
 app.get('/users',
     (req, res, next) => {
@@ -58,7 +83,10 @@ app.post('/login', async (req, res) => {
     if (user) {
         let isMatch = await bcrypt.compare(req.body.password, user.password)
         if (isMatch) {
-            res.send({ success: true, message: 'Login Successfully', user })
+            // let token = jwt.sign({ id: 'magan' }, 'hellomynameisjatin')
+            const token = jwt.sign({ id: user._id }, 'hellomynameisjatin', { expiresIn: '1d' });
+
+            res.send({ success: true, message: 'Login Successfully', token })
         } else {
             res.send({ success: false, message: 'password do not match' })
         }
@@ -66,6 +94,8 @@ app.post('/login', async (req, res) => {
         res.send({ success: false, message: 'invalid email' })
     }
 })
+
+
 
 app.delete('/user/delete/:id', async (req, res) => {
     let result = await User.findByIdAndDelete(req.params.id)
