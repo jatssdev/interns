@@ -483,6 +483,9 @@ const tshirtsWomen = [
     },
 ];
 
+let allProducts = [...earbuds, ...tshirts, ...tshirtsWomen, ...shoes]
+let cartarr = []
+// let newArr = earbuds.concat(shoes,tshirts)
 
 function renderProducts(element, data) {
     element.innerHTML = data.map(function (x) {
@@ -490,15 +493,38 @@ function renderProducts(element, data) {
     <img src="${x.img}" altI="">
     <h2>${x.title}</h2>
     <h3>₹${x.price}</h3>
-    <button>Add To cart</button>
+    <button onclick='AddTOcart(${x.id})'>Add To cart</button>
 </div>`
     }).join('')
+}
+function renderCart(element, data) {
+    element.innerHTML = data.map(function (x) {
+        return `<div class="product">
+    <img src="${x.img}" altI="">
+    <h2>${x.title}</h2>
+    <h3>₹${x.price}</h3>
+    <button onclick='remove(${x.id})'>Remove</button>
+</div>`
+    }).join('')
+    cartlength.innerHTML = cartarr.length
+
 }
 renderProducts(earbudsWrapper, earbuds)
 renderProducts(shoesWrapper, shoes)
 
-
-
 function cartToggle() {
     cartElem.classList.toggle('active')
+}
+
+function AddTOcart(id) {
+    let product = allProducts.find((x) => x.id == id)
+    cartarr.push(product)
+    renderCart(cartBody, cartarr)
+}
+
+function remove(id) {
+    let newArr = cartarr.filter((x) => x.id != id)
+    cartarr = newArr
+    renderCart(cartBody, cartarr)
+
 }
