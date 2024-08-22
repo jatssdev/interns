@@ -502,21 +502,8 @@ let renderProducts = (div, items) => {
 </div>`
     }).join('')
 }
-let renderCart = () => {
-    sidecart.innerHTML = cartArr.map((x) => {
-        return `
-<div class="product">
-    <div class="img">
-        <img src="${x.img}" alt="">
-    </div>
-    <h2>${x.title}</h2>
-    <h3><del>₹${x.price}</del> <span>₹${Math.floor((x.price / 100) * (100 - x.discount))}</span></h3>
-    <button onclick='AddToCart(${x.id})'>Add To Cart</button>
-</div>`
-    }).join('')
-}
 
-renderCart()
+
 
 renderProducts(Earbuds, earbud)
 renderProducts(Tishirts, tshirt)
@@ -525,10 +512,51 @@ function cartToggle() {
     sidecart.classList.toggle('active')
 }
 
+
+
 function AddToCart(id) {
-    let product = products.find((x) => {
-        return x.id == id
-    })
-    cartArr.push(product)
-    renderCart()
+    let product = products.find((x) => x.id == id)
+
+    let existing = cartArr.find((x) => x.id == id)
+    if (existing) {
+        alert('product already exists in cart!')
+    } else {
+        cartArr.push(product)
+
+        sidecart.innerHTML = cartArr.map((x) => {
+            return `
+    <div class="product">
+        <div class="img">
+            <img src="${x.img}" alt="">
+        </div>
+        <h2>${x.title}</h2>
+        <h3><del>₹${x.price}</del> <span>₹${Math.floor((x.price / 100) * (100 - x.discount))}</span></h3>
+        <button onclick='remove(${x.id})'>Remove</button>
+    </div>`
+        }).join('')
+    }
+    cartLength.innerHTML = cartArr.length
+
+
+}
+
+function remove(id) {
+
+    let newArr = cartArr.filter((x) => x.id != id)
+    cartArr = newArr
+
+    sidecart.innerHTML = cartArr.map((x) => {
+        return `
+<div class="product">
+    <div class="img">
+        <img src="${x.img}" alt="">
+    </div>
+    <h2>${x.title}</h2>
+    <h3><del>₹${x.price}</del> <span>₹${Math.floor((x.price / 100) * (100 - x.discount))}</span></h3>
+    <button onclick='remove(${x.id})'>Remove</button>
+</div>`
+    }).join('')
+
+    cartLength.innerHTML = cartArr.length
+
 }
