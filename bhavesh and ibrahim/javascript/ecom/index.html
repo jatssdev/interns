@@ -22,8 +22,21 @@
         </div>
     </div>
 
+    <div class="searchElem" id="searchElem">
+        <button onclick="searchElem.style.display = 'none';searchinput.value = ''">Back...</button>
+        <div id="searchWrapper" class="searchWrapper wrapper">
+
+        </div>
+
+
+    </div>
+
     <div class="navbar">
         <h1>Logo</h1>
+        <div class="search">
+            <input type="search" id="searchinput" placeholder="Search">
+            <button onclick="SearchHandler()">Search</button>
+        </div>
         <div class="cartLink" onclick="cartToggle()"><i class="fa-solid fa-shopping-bag"></i><span
                 id="cartlength">0</span></div>
     </div>

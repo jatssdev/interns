@@ -528,3 +528,11 @@ function remove(id) {
     renderCart(cartBody, cartarr)
 
 }
+
+function SearchHandler() {
+    let val = searchinput.value
+    let searchedProducts = allProducts.filter((x) => x.title.toLowerCase().includes(val.toLowerCase()))
+    renderProducts(searchWrapper, searchedProducts)
+    searchElem.style.display = 'block'
+}
+

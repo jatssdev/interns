@@ -54,6 +54,10 @@
     justify-content: space-between;
     align-items: center;
     height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     background-color: black;
     color: white;
     padding: 0 50px;
@@ -102,4 +106,22 @@
 .cart .cartBody img {
     width: 100%;
     height: 100px;
+}
+
+
+/* search  */
+.searchElem {
+    height: calc(100vh - 80px);
+    background-color: antiquewhite;
+    top: 80px;
+    left: 0;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    display: none;
+}
+
+.searchElem .searchWrapper {
+    overflow: auto;
+    height: calc(100vh - 90px);
 }
