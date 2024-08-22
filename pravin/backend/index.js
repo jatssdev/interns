@@ -9,15 +9,11 @@ app.use(cors())
 app.use(express.json()) // for parsing application/json
 require('./db')
 
-
-
-
-
 app.get('/', (req, res) => {
     res.send('hello world')
 })
 
-app.get('/products', async (req, res) => {
+app.get('/users', async (req, res) => {
     let users = await User.find()
     res.send(users)
 })
@@ -36,7 +32,25 @@ app.post('/register', async (req, res) => {
         res.send('user not registered')
     }
 })
+app.post('/login', async (req, res) => {
+    let user = await User.findOne({ email: req.body.email })
+    if (user) {
+        if (user.password != req.body.password) {
+            res.send('invalid password')
+        } else {
+            res.send('user login successfully')
+        }
+    } else {
+        res.send('user not found')
+    }
 
+})
+
+
+app.delete('/delete/:id', async (req, res) => {
+    await User.findByIdAndDelete(req.params.id)
+    res.send('user deleted')
+})
 
 
 
