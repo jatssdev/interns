@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\categoryModel;
 use App\Models\product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -18,9 +19,15 @@ class adminController extends Controller
     }
     function addpproduct()
     {
-        return view('admin.addproduct');
+        $categories = categoryModel::all();
+        return view('admin.addproduct', compact('categories'));
 
 
+    }
+    function getallproducts()
+    {
+        $products = product::all();
+        return view('admin.products', compact('products'));
     }
 
     function storepproduct(Request $request)

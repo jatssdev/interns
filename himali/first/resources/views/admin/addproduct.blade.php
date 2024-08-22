@@ -22,9 +22,11 @@
         <div>
             <select name="category" id="">
                 <option value="">Select Category</option>
-                <option value="earbuds">Earbuds</option>
-                <option value="tshirts">Tshirts</option>
-                <option value="shoes">Shoes</option>
+                @foreach ($categories as $val)
+
+                    <option value="{{$val->name}}">{{$val->name}}</option>
+                @endforeach
+
             </select>
         </div>
         <div class="grid grid-cols-12 gap-4">
@@ -33,41 +35,10 @@
                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHZqj-XReJ2R76nji51cZl4ETk6-eHRmZBRw&s"
                         class="w-full" alt=""></label>
 
-                <input type="file" name="images[]" id="img5">
+                <input type="file" name="images[]" multiple id="img5">
 
             </div>
-            <div class="col-span-2">
-                <label for="img1"><img
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHZqj-XReJ2R76nji51cZl4ETk6-eHRmZBRw&s"
-                        class="w-full" alt=""></label>
 
-                <input type="file" name="images[]" id="img1">
-
-            </div>
-            <div class="col-span-2">
-                <label for="img2"><img
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHZqj-XReJ2R76nji51cZl4ETk6-eHRmZBRw&s"
-                        class="w-full" alt=""></label>
-
-                <input type="file" name="images[]" id="img2">
-
-            </div>
-            <div class="col-span-2">
-                <label for="img3"><img
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHZqj-XReJ2R76nji51cZl4ETk6-eHRmZBRw&s"
-                        class="w-full" alt=""></label>
-
-                <input type="file" name="images[]" id="img3">
-
-            </div>
-            <div class="col-span-2">
-                <label for="img4"><img
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHZqj-XReJ2R76nji51cZl4ETk6-eHRmZBRw&s"
-                        class="w-full" alt=""></label>
-
-                <input type="file" name="images[]" id="img4">
-
-            </div>
         </div>
         <div><input type="submit" value="Add"></div>
     </form>

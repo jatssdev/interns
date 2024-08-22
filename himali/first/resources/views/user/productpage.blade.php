@@ -13,7 +13,12 @@
 @endif
 
 <div>
-    <a href="">earbuds</a>
+
+    @foreach ($categories as $val)
+
+        <a href="/products/{{$val->name}}">{{$val->name}}</a>
+    @endforeach
+
 </div>
 
 <div class="grid grid-cols-12 gap-3 p-5">
@@ -27,7 +32,5 @@
     @endforeach
 </div>
 
-@if (Auth::check())
-    <h1 class="text-3xl font-bold">Hello {{Auth::user()->name}}</h1>
-@endif
+
 @endsection

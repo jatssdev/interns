@@ -20,11 +20,17 @@
             <a class="border-b block p-2" href="{{route('product.add')}}">
                 <p class="">Add Product</p>
             </a>
-            <a class="border-b block p-2" href="/admin">
+            <a class="border-b block p-2" href="{{route('category.add')}}">
+                <p class="">Add Category</p>
+            </a>
+            <a class="border-b block p-2" href="{{route('admin.products')}}">
                 <p class="">Products</p>
             </a>
             <a class="border-b block p-2" href="/admin/users">
                 <p class="">Users</p>
+            </a>
+            <a class="border-b block p-2" href="/admin/categories">
+                <p class="">Categories</p>
             </a>
         </div>
         <div class="w-4/5 h-full">
