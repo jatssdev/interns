@@ -490,9 +490,11 @@ let cartarr = []
 function renderProducts(element, data) {
     element.innerHTML = data.map(function (x) {
         return `<div class="product">
+    <div onclick='SingleProduct(${x.id})'>
     <img src="${x.img}" altI="">
     <h2>${x.title}</h2>
     <h3>₹${x.price}</h3>
+    </div>
     <button onclick='AddTOcart(${x.id})'>Add To cart</button>
 </div>`
     }).join('')
@@ -536,3 +538,49 @@ function SearchHandler() {
     searchElem.style.display = 'block'
 }
 
+function SingleProduct(id) {
+    let product = allProducts.find((x) => x.id == id)
+
+
+    singleProductBody.innerHTML = ` <div class="sProduct">
+                <div class="col1">
+                    <div class="mainImg">
+                        <img id='mainImage' src="${product.img}" alt="">
+                    </div>
+                    <div class="images">
+                        <div class="img">
+                            <img onclick="previewImage('${product.img}')" src="${product.img}" alt="">
+                        </div>
+                        <div class="img">
+                            <img onclick="previewImage('${product.img2}')" src="${product.img2}" alt="">
+                        </div>
+                        <div class="img">
+                            <img onclick="previewImage('${product.img3}')" src="${product.img3}" alt="">
+                        </div>
+                        <div class="img">
+                            <img onclick="previewImage('${product.img4}')" src="${product.img4}" alt="">
+                        </div>
+                        <div class="img">
+                            <img onclick="previewImage('${product.img5}')" src="${product.img5}" alt="">
+                        </div>
+                      
+                    </div>
+
+                </div>
+                <div class="col2">
+                    <h1>${product.title}</h1>
+                     <button onclick='AddTOcart(${product.id})'>Add To cart</button>
+                </div>
+            </div>`
+
+    singleProductPage.style.display = 'flex'
+}
+
+function closeSingleProduct() {
+    singleProductPage.style.display = 'none'
+
+}
+
+function previewImage(img) {
+    mainImage.src = img
+}
