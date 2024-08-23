@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="heading"><i>Javascript</i></h1>
+    <button onclick="modeHandler()">Dark</button>
+    <button onclick="mode1Handler()">bright</button>
+
+
+    <script>
+        function modeHandler() {
+            document.body.style.backgroundColor = 'black'
+            document.getElementById('heading').style.color = 'white'
+            document.getElementById('heading').innerHTML = '<i>Hello wolrd</i>'
+        }
+        function mode1Handler() {
+            document.body.style.backgroundColor = 'white'
+            document.getElementById('heading').style.color = 'black'
+            document.getElementById('heading').innerHTML = '<i>Javascript</i>'
+        }
+    </script>
+
+
+</body>
+
+</html>
