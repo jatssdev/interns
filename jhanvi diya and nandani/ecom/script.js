@@ -504,6 +504,13 @@ let renderProducts = (div, items) => {
 }
 
 
+function TotalPrice() {
+    totalCartPrice.innerHTML = cartArr.reduce((total, product) => total += Math.trunc((product.price / 100) * (100 - product.discount)), 0)
+}
+
+
+
+TotalPrice()
 
 renderProducts(Earbuds, earbud)
 renderProducts(Tishirts, tshirt)
@@ -523,7 +530,7 @@ function AddToCart(id) {
     } else {
         cartArr.push(product)
 
-        sidecart.innerHTML = cartArr.map((x) => {
+        cartBody.innerHTML = cartArr.map((x) => {
             return `
     <div class="product">
         <div class="img">
@@ -537,7 +544,7 @@ function AddToCart(id) {
     }
     cartLength.innerHTML = cartArr.length
 
-
+    TotalPrice()
 }
 
 function remove(id) {
@@ -545,7 +552,7 @@ function remove(id) {
     let newArr = cartArr.filter((x) => x.id != id)
     cartArr = newArr
 
-    sidecart.innerHTML = cartArr.map((x) => {
+    cartBody.innerHTML = cartArr.map((x) => {
         return `
 <div class="product">
     <div class="img">
@@ -558,5 +565,5 @@ function remove(id) {
     }).join('')
 
     cartLength.innerHTML = cartArr.length
-
+    TotalPrice()
 }

@@ -71,6 +71,7 @@
         </div>
     </div>
 
+    <hr>
 
     <div id="studentsWrapper">
 
@@ -98,14 +99,26 @@
             }
         ]
 
+        // studentsWrapper.innerHTML = students.map((student) => {
+        //     return `<div class="product">
+        //     <img src="${student.image}" alt="">
+        //     <h2>${student.name}</h2>
+        //     <h3>Skill : ${student.skill}</h3>
+        //     <button>Add To Cart</button>
+        // </div>`
+        // })
+
+
+
         studentsWrapper.innerHTML = students.map((student) => {
-            return `<div class="product">
+            return ` <div class="product">
             <img src="${student.image}" alt="">
             <h2>${student.name}</h2>
-            <h3>Skill : ${student.skill}</h3>
+            <h3>₹699</h3>
             <button>Add To Cart</button>
         </div>`
         })
+
 
     </script>
 </body>
