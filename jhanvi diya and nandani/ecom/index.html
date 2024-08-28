@@ -17,10 +17,18 @@
 
         </div>
         <hr>
-        <h3 id="totalCartPrice"></h3>
+        <h3 id="totalCartPrice">0</h3>
     </div>
+    <div class="searchClose" id="searchClose" onclick="searchCloseHandler()">
+        <i class="fa-solid fa-x"></i>
+    </div>
+    <div class="searchElem wrapper" id="searchElem"></div>
     <div class="navbar">
         <h1>Jhanvi's Store</h1>
+        <div class="search">
+            <input id="searchInput" type="text" placeholder="Search...">
+            <button onclick="searchHandler()">Search</button>
+        </div>
         <div class="links">
             <p>Home</p>
             <p>About</p>

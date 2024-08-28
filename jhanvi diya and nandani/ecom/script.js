@@ -505,7 +505,7 @@ let renderProducts = (div, items) => {
 
 
 function TotalPrice() {
-    totalCartPrice.innerHTML = cartArr.reduce((total, product) => total += Math.trunc((product.price / 100) * (100 - product.discount)), 0)
+    totalCartPrice.innerHTML = cartArr.reduce((total, product) => total += Math.round((product.price / 100) * (100 - product.discount)), 0)
 }
 
 
@@ -566,4 +566,31 @@ function remove(id) {
 
     cartLength.innerHTML = cartArr.length
     TotalPrice()
+}
+
+
+
+
+
+function searchHandler() {
+    let value = searchInput.value
+    let searchedProducts = products.filter((x) => x.title.toLowerCase().includes(value.toLowerCase()))
+    searchElem.innerHTML = searchedProducts.map((x) => {
+        return `
+<div class="product">
+    <div class="img">
+        <img src="${x.img}" alt="">
+    </div>
+    <h2>${x.title}</h2>
+    <h3><del>₹${x.price}</del> <span>₹${Math.floor((x.price / 100) * (100 - x.discount))}</span></h3>
+    <button onclick='AddToCart(${x.id})'>Add to cart</button>
+</div>`
+    }).join('')
+    searchElem.style.display = 'grid'
+    searchClose.style.display = 'block'
+}
+
+function searchCloseHandler() {
+    searchElem.style.display = 'none'
+    searchClose.style.display = 'none'
 }

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="wrapper"></div>
+
+
+    <script>
+        const pizza = [
+            {
+                id: 1,
+                title:
+                    "BLACK OLIVES PIZZA",
+                img: "https://vendify-demos.astoundify.com/tasti/wp-content/uploads/sites/4/2020/12/mixed-ingredient-pizza-with-black-olive-rolls.jpg",
+                price: 250,
+                qty: 1,
+                category: "pizza",
+            },
+
+            {
+                id: 2,
+                img: "https://tse1.mm.bing.net/th?id=OIP.tSrxvWckemXsznUxYt0hkwHaE7&pid=Api&P=0&h=220",
+                title:
+                    "PEPPERONI PIZZA",
+                price: 290,
+                qty: 1,
+                category: "pizza",
+            },
+
+            {
+                id: 3,
+                img: "https://i.pinimg.com/originals/f4/c8/d5/f4c8d5e2342255c66a4d2e554849e98a.jpg",
+                title:
+                    "GARLIC CHEESE PIZZA",
+                price: 190,
+
+                qty: 1,
+                category: "pizza",
+            },
+            {
+                id: 4,
+                img: "https://tse1.mm.bing.net/th?id=OIP.KTZn4lAcKn-7C4LRO1NDqAHaFF&pid=Api&P=0&h=220",
+                title:
+                    "ONION PIZZA",
+                price: 150,
+                qty: 1,
+                category: "pizza",
+            },
+            {
+                id: 5,
+                img: "https://i.ytimg.com/vi/gUlsgxzY9GU/maxresdefault.jpg",
+                title:
+                    "SWEET CHEESE CORN PIZZA",
+                price: 180,
+
+                qty: 1,
+                category: "pizza",
+            },
+            {
+                id: 6,
+                img: "https://tse1.mm.bing.net/th?id=OIP.OZny5F6g0QAQPLsU_4HnEAHaE8&pid=Api&P=0&h=220",
+                title:
+                    "TOMATO PIZZA",
+                price: 160,
+                qty: 1,
+                category: "pizza",
+            }
+        ];
+
+        let products = [...pizza]
+        let cartArr = []
+        let renderProducts = (div, items) => {
+            div.innerHTML = items.map((x) => {
+                return `
+<div class="product">
+    <div class="img">
+        <img src="${x.img}" alt="">
+    </div>
+    <h2>${x.title}</h2>
+    <h3>₹${x.price}</h3>
+    <button onclick='AddToCart(${x.id})'>Add To Cart</button>
+</div>`
+            }).join('')
+        }
+        renderProducts(wrapper, products)
+    </script>
+</body>
+
+</html>
