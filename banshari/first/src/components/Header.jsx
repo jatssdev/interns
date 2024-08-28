@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { MainContext } from '../App'
 
-const Header = ({ userName }) => {
+const Header = () => {
+    let contextVal = useContext(MainContext) // let { name } = useContext(MainContext)
 
     return (
         <div>
-            <h2>{userName}</h2>
+            <h2>{contextVal.name}</h2>
         </div>
     )
 }
