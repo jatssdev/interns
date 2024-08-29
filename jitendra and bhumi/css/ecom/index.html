@@ -130,16 +130,56 @@
             .product {
                 width: calc(100%);
             }
+
             .wrapper {
                 padding: 10px;
             }
 
 
         }
+
+        .sidecart {
+            width: 40%;
+            height: 100vh;
+            top: 0;
+
+            z-index: 10;
+            left: -40%;
+            background-color: gray;
+            position: fixed;
+            transition: .5s;
+        }
+
+        .sidecart.active {
+            left: 0;
+        }
+
+        .sidecart .cartHead {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid black;
+        }
+
+        .sidecart .cartBody {
+            height: 90vh;
+            overflow-y: auto;
+        }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
+    <div id="sidecart" class="sidecart">
+        <div class="cartHead">
+            <h2>Cart</h2>
+            <i class="fa-solid fa-x"></i>
+        </div>
+        <div class="cartBody" id="cartBody"></div>
+    </div>
     <div class="navbar">
         <h1>Magan</h1>
         <div class="links">
@@ -152,134 +192,24 @@
             <input type="text">
             <button>Search</button>
         </div>
-    </div>
-
-    <div class="dropdown">
-        <p class="btn"> Click Me</p>
-        <div class="drop">
-            <p>Item 1</p>
-            <p>Item 1</p>
-            <p>Item 1</p>
-            <p>Item 1</p>
+        <div class="cart" onclick="cartToggle()">
+            <i class="fa-solid fa-shopping-bag"></i>
         </div>
     </div>
 
-    <div class="wrapper">
-        <div class="product">
-            <div class="img">
-                <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
-                    alt="">
-            </div>
-            <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut!</h2>
-            <h3><del>₹999</del> <span>₹499</span> </h3>
-            <button>Add To Cart</button>
-        </div>
-        <div class="product">
-            <div class="img">
-                <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
-                    alt="">
-            </div>
-            <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut!</h2>
-            <h3><del>₹999</del> <span>₹499</span> </h3>
-            <button>Add To Cart</button>
-        </div>
-        <div class="product">
-            <div class="img">
-                <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
-                    alt="">
-            </div>
-            <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut!</h2>
-            <h3><del>₹999</del> <span>₹499</span> </h3>
-            <button>Add To Cart</button>
-        </div>
-        <div class="product">
-            <div class="img">
-                <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
-                    alt="">
-            </div>
-            <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut!</h2>
-            <h3><del>₹999</del> <span>₹499</span> </h3>
-            <button>Add To Cart</button>
-        </div>
+    <h1>Earbuds</h1>
 
-
-
-        <div class="product">
-            <div class="img">
-                <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
-                    alt="">
-            </div>
-            <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut!</h2>
-            <h3><del>₹999</del> <span>₹499</span> </h3>
-            <button>Add To Cart</button>
-        </div>
-        <div class="product">
-            <div class="img">
-                <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
-                    alt="">
-            </div>
-            <h>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut!</h>
-            <h3><del>₹999</del> <span>₹499</span> </h3>
-            <button>Add To Cart</button>
-        </div>
-        <div class="product">
-            <div class="img">
-                <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
-                    alt="">
-            </div>
-            <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut!</h2>
-            <h3><del>₹999</del> <span>₹499</span> </h3>
-            <button>Add To Cart</button>
-        </div>
-        <div class="product">
-            <div class="img">
-                <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
-                    alt="">
-            </div>
-            <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut!</h2>
-            <h3><del>₹999</del> <span>₹499</span> </h3>
-            <button>Add To Cart</button>
-        </div>
-
-        <div class="product">
-            <div class="img">
-                <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
-                    alt="">
-            </div>
-            <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut!</h2>
-            <h3><del>₹999</del> <span>₹499</span> </h3>
-            <button>Add To Cart</button>
-        </div>
-        <div class="product">
-            <div class="img">
-                <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
-                    alt="">
-            </div>
-            <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut!</h2>
-            <h3><del>₹999</del> <span>₹499</span> </h3>
-            <button>Add To Cart</button>
-        </div>
-        <div class="product">
-            <div class="img">
-                <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
-                    alt="">
-            </div>
-            <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut!</h2>
-            <h3><del>₹999</del> <span>₹499</span> </h3>
-            <button>Add To Cart</button>
-        </div>
-        <div class="product">
-            <div class="img">
-                <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
-                    alt="">
-            </div>
-            <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut!</h2>
-            <h3><del>₹999</del> <span>₹499</span> </h3>
-            <button>Add To Cart</button>
-        </div>
+    <div id="wrapper" class="wrapper">
 
 
     </div>
+    <h1>Tshirts</h1>
+    <div id="wrapper2" class="wrapper">
+
+
+    </div>
+
+    <script src="index.js"></script>
 
 </body>
 

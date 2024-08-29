@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #wrapper {
+        .wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             gap: 20px;
         }
 
-        #wrapper img {
+        .wrapper img {
             width: 100%;
         }
 
-        #wrapper .user {
+        .wrapper .user {
             padding: 15px;
             box-shadow: 0 3px 10px rgb(210, 210, 210);
         }
@@ -25,8 +25,13 @@
 
 <body>
     <h2>Arrays And Objects</h2>
+    <h1>Earbuds</h1>
+    <div id="wrapper" class="wrapper">
 
-    <div id="wrapper">
+    </div>
+    <h1>Tshirts</h1>
+
+    <div id="wrapper2" class="wrapper">
 
     </div>
     <script>
@@ -45,39 +50,6 @@
 
 
 
-
-
-
-        let students = [
-            {
-                name: 'Magan',
-                skill: 'Full Stack Developer',
-                img: "https://rukminim2.flixcart.com/image/850/1000/l3vxbbk0/cut-out/y/r/n/4-doremon01-yaraprint-original-imagewf2hdhjwzbg.jpeg?q=20&crop=false"
-            },
-            {
-                name: 'jatin',
-                skill: 'mern stack developer',
-                img: "https://rukminim2.flixcart.com/image/850/1000/l3vxbbk0/cut-out/y/r/n/4-doremon01-yaraprint-original-imagewf2hdhjwzbg.jpeg?q=20&crop=false"
-            },
-            {
-                name: 'Harsh',
-                skill: 'React developer',
-                img: "https://rukminim2.flixcart.com/image/850/1000/l3vxbbk0/cut-out/y/r/n/4-doremon01-yaraprint-original-imagewf2hdhjwzbg.jpeg?q=20&crop=false"
-            },
-            {
-                name: 'parth',
-                skill: 'software tester',
-                img: "https://rukminim2.flixcart.com/image/850/1000/l3vxbbk0/cut-out/y/r/n/4-doremon01-yaraprint-original-imagewf2hdhjwzbg.jpeg?q=20&crop=false"
-            },
-        ]
-
-        for (let i = 0; i < students.length; i++) {
-            wrapper.innerHTML += `<div class="user">
-        <img src="${students[i].img}" alt="">
-        <h2>${students[i].name}</h2>
-        <p>${students[i].skill}</p>
-    </div>`
-        }
 
 
 
@@ -249,6 +221,134 @@
                 category: "earbud",
             },
         ];
+        const tshirt = [
+            {
+                id: 101,
+                title: `Allen Solly Men's Regular Fit Polo`,
+                img: "https://m.media-amazon.com/images/I/71eUwDk8z+L._UY879_.jpg",
+                img2: "https://m.media-amazon.com/images/I/71mh8ZJZFuL._UX569_.jpg",
+                img3: "https://m.media-amazon.com/images/I/71vSLpVgZpL._UX569_.jpg",
+                img4: "https://m.media-amazon.com/images/I/71J8pbcn8WL._UX569_.jpg",
+                img5: "https://m.media-amazon.com/images/I/71Xu6C8X5sL._UX569_.jpg",
+                price: 1099,
+                discount: 47,
+                qty: 1,
+                category: "tshirt",
+            },
+            {
+                id: 102,
+                title: `Veirdo Polo T Shirts for Men, Cotton Polo Neck T Shirts for Men, Half Sleeves Men Polo Tshirt, Classic Polo T Shirts for Men, Men's Regular Polo Shirt`,
+                img: "https://m.media-amazon.com/images/I/51lP3VinwoL._UY879_.jpg",
+                img2: "https://m.media-amazon.com/images/I/313gxA5aDLL._SR38,50_.jpg",
+                img3: "https://m.media-amazon.com/images/I/51p4Lh0xBBL._UX569_.jpg",
+                img4: "https://m.media-amazon.com/images/I/61b610JzsZL._UX569_.jpg",
+                img5: "https://m.media-amazon.com/images/I/512nCuSkPvL._UX679_.jpg",
+                price: 1199,
+                discount: 68,
+                qty: 1,
+                category: "tshirt",
+            },
+            {
+                id: 103,
+                title: `AUSK Men's Henley Neck Full Sleeves Regular Fit Cotton T-Shirts`,
+                img: "https://m.media-amazon.com/images/I/7152RCSU4LL._UX569_.jpg",
+                img2: "https://m.media-amazon.com/images/I/61sN03JSBVL._UX569_.jpg",
+                img3: "https://m.media-amazon.com/images/I/61sJSqUbdIL._UX569_.jpg",
+                img4: "https://m.media-amazon.com/images/I/61orVltZ7aL._UX569_.jpg",
+                img5: "https://m.media-amazon.com/images/I/512nCuSkPvL._UX679_.jpg",
+                price: 1449,
+                discount: 76,
+                qty: 1,
+                category: "tshirt",
+            },
+            {
+                id: 104,
+                title: `Lyned Mens Cotton Half Sleeve Striped Polo T Shirt with Collar`,
+                img: "https://m.media-amazon.com/images/I/71pNnnaOIzS._UY741_.jpg",
+                img2: "https://m.media-amazon.com/images/I/81qde+GbXzS._UL1500_.jpg",
+                img3: "https://m.media-amazon.com/images/I/71OQQEULimS._UL1500_.jpg",
+                img4: "https://m.media-amazon.com/images/I/61OCQ1emmYS._UL1500_.jpg",
+                img5: "https://m.media-amazon.com/images/I/512nCuSkPvL._UX679_.jpg",
+                price: 2499,
+                discount: 73,
+                qty: 1,
+                category: "tshirt",
+            },
+            {
+                id: 105,
+                title: `AELOMART Men's T Shirt-(Amt250105-P_Green)`,
+                img: "https://m.media-amazon.com/images/I/71O1QaI-sbL._UY741_.jpg",
+                img2: "https://m.media-amazon.com/images/I/313hld9yJYL._SR38,50_.jpg",
+                img3: "https://m.media-amazon.com/images/I/71IS7Oxhv4L._UY550_.jpg",
+                img4: "https://m.media-amazon.com/images/I/71qJJoWrioL._UY550_.jpg",
+                img5: "https://m.media-amazon.com/images/I/41TKkmIEiyL.jpg",
+                price: 1499,
+                discount: 67,
+                qty: 1,
+                category: "tshirt",
+            },
+            {
+                id: 106,
+                title: `Campus Sutra Men's Blue and White Ombre Dri-Fit Activewear T-Shirt Regular Fit for Casual Wear | Structured T-Shirt Crafted with Comfort Fit and High-Performance for Everyday Wear`,
+                img: "https://m.media-amazon.com/images/I/61MjKYTzgQS._UX679_.jpg",
+                img2: "https://m.media-amazon.com/images/I/41O5F1Fwa-S._SR38,50_.jpg",
+                img3: "https://m.media-amazon.com/images/I/71ULOze-C9S._UX679_.jpg",
+                img4: "https://m.media-amazon.com/images/I/71VawsSnKaL._UX679_.jpg",
+                img5: "https://m.media-amazon.com/images/I/71ZjxJKa16L._UX679_.jpg",
+                price: 1449,
+                discount: 67,
+                qty: 1,
+                category: "tshirt",
+            },
+            {
+                id: 107,
+                title: `EYEBOGLER Men's Striped Regular Fit T-Shirt (T428HS_Blue XL) EYEBOGLERMenRegularT-Shirt`,
+                img: "https://m.media-amazon.com/images/I/51zPkF2QEDL._SY741._SX._UX._SY._UY_.jpg",
+                img2: "https://m.media-amazon.com/images/I/51J3B0pv4YL._UX569_.jpg",
+                img3: "https://m.media-amazon.com/images/I/51k5XjXCDLL._SY741._SX._UX._SY._UY_.jpg",
+                img4: "https://m.media-amazon.com/images/I/51mafXDEOoL._SY741._SX._UX._SY._UY_.jpg",
+                img5: "https://m.media-amazon.com/images/I/81+4kqbFVvL._SX679._SX._UX._SY._UY_.jpg",
+                price: 1299,
+                discount: 69,
+                qty: 1,
+                category: "tshirt",
+            },
+            {
+                id: 108,
+                title: `Urbano Fashion Men's Graphic Printed Round Neck Half Sleeve Slim Fit Cotton T-Shirt`,
+                img: "https://m.media-amazon.com/images/I/812LCdKokXL._UX679_.jpg",
+                img2: "https://m.media-amazon.com/images/I/71CfH9fxKYL._UX679_.jpg",
+                img3: "https://m.media-amazon.com/images/I/41T6QdEsZmL._SR38,50_.jpg",
+                img4: "https://m.media-amazon.com/images/I/71xLe5pvS5L._UX679_.jpg",
+                img5: "https://m.media-amazon.com/images/I/81Qp88He8ZL._UX679_.jpg",
+                price: 999,
+                discount: 63,
+                qty: 1,
+                category: "tshirt",
+            },
+        ];
+
+        //     for (let x of earbuds) {
+        //         wrapper.innerHTML += `<div class="user">
+        //     <img src="${x.img}" alt="">
+        //     <h2>${x.title}</h2>
+        //     <p>₹${x.price}</p>
+        //     <button>Add To cart</button>
+        // </div>`
+        //     }
+        let renderFunction = (elem, data) => {
+            elem.innerHTML = data.map((x) => {
+                return `<div class="user">
+            <img src="${x.img}" alt="">
+            <h2>${x.title}</h2>
+            <p>₹${x.price}</p>
+            <button >Add To cart</button></div>`
+            }).join('')
+        }
+
+        renderFunction(wrapper, earbuds)
+        renderFunction(wrapper2, tshirt)
+
     </script>
 
 
