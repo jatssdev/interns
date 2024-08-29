@@ -490,14 +490,18 @@ let cartArr = []
 // let arr3 = [...arr, ...arr2] //[44, 54, 35435, 35643, 6,3546, 4576568, 546435, 364554]
 
 let renderProducts = (div, items) => {
+    let ref = false
     div.innerHTML = items.map((x) => {
+        ref = !ref
         return `
-<div class="product">
+<div class="product"  data-aos="${ref ? 'fade-left' : 'fade-right'}">
+    <div onclick='ProductDetailsHandler(${x.id})'>
     <div class="img">
         <img src="${x.img}" alt="">
     </div>
     <h2>${x.title}</h2>
     <h3><del>₹${x.price}</del> <span>₹${Math.floor((x.price / 100) * (100 - x.discount))}</span></h3>
+    </div>
     <button onclick='AddToCart(${x.id})'>Add To Cart</button>
 </div>`
     }).join('')
@@ -554,7 +558,7 @@ function remove(id) {
 
     cartBody.innerHTML = cartArr.map((x) => {
         return `
-<div class="product">
+<div class="product" data-aos="fade-right">
     <div class="img">
         <img src="${x.img}" alt="">
     </div>
@@ -593,4 +597,40 @@ function searchHandler() {
 function searchCloseHandler() {
     searchElem.style.display = 'none'
     searchClose.style.display = 'none'
+}
+
+function ProductDetailsHandler(id) {
+    let product = products.find((x) => x.id == id)
+
+    productDetails.innerHTML = `  <div class="productDetail">
+            <div class="col1">
+                <div class="mainimage">
+                    <img id='previewImage' src="${product.img}" alt="">
+                </div>
+                <div class="images">
+                    <div class="img"><img onclick='SetImage("${product.img}")' src="${product.img}" alt="">
+                    </div>
+                    <div class="img"><img onclick='SetImage("${product.img2}")' src="${product.img2}" alt="">
+                    </div>
+                    <div class="img"><img onclick='SetImage("${product.img3}")' src="${product.img3}" alt="">
+                    </div>
+                    <div class="img"><img onclick='SetImage("${product.img4}")' src="${product.img4}" alt="">
+                    </div>
+                    <div class="img"><img onclick='SetImage("${product.img5}")' src="${product.img5}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col2">
+                <h2>${product.title}/h2>
+                <h3>${product.price}</h3>
+               <button onclick='AddToCart(${product.id})'>Add to cart</button>
+            </div>
+        </div>`
+
+    productDetails.style.display = 'block'
+
+}
+
+function SetImage(img) {
+    previewImage.src = img
 }
