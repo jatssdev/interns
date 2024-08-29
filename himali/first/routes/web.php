@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\cartController;
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\userController;
 use App\Models\categoryModel;
@@ -63,3 +64,6 @@ Route::get('/logout', function (Request $request) {
 
 Route::post('/register', [userController::class, 'register'])->name('user.register');
 Route::post('/login', [userController::class, 'login'])->name('user.login');
+Route::get('/search', [userController::class, 'search'])->name('user.search');
+Route::post('/addtocart', [cartController::class, 'addtocart'])->name('user.addtocart');
+Route::get('/cart', [cartController::class, 'index'])->name('user.cart');

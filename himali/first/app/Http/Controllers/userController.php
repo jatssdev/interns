@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -47,5 +48,10 @@ class userController extends Controller
 
 
     }
-
+    function search(Request $request)
+    {
+        $query = $request->input('query');
+        $products = product::where('title', 'LIKE', "%$query%")->orWhere('price', 'LIKE', "%$query%")->get();
+        return view('user.search', compact('products'));
+    }
 }

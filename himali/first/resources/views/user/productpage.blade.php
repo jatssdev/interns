@@ -13,12 +13,9 @@
 @endif
 
 <div>
-
     @foreach ($categories as $val)
-
         <a href="/products/{{$val->name}}">{{$val->name}}</a>
     @endforeach
-
 </div>
 
 <div class="grid grid-cols-12 gap-3 p-5">
