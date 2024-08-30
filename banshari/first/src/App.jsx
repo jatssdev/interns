@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import About from './components/About'
 import UseEffect from './components/UseEffect'
 import UseRef from './components/UseRef'
+import Register from './components/Register'
 export const MainContext = createContext()
 function App() {
   let [user, setUser] = useState({ name: 'bansari' })
@@ -21,6 +22,7 @@ function App() {
             <Route path='/about' element={<About />} />
             <Route path='/effect' element={<UseEffect />} />
             <Route path='/ref' element={<UseRef />} />
+            <Route path='/register' element={<Register />} />
           </Routes>
         </MainContext.Provider>
       </BrowserRouter>

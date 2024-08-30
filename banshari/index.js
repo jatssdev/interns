@@ -9,4 +9,13 @@ let newArr = arr.map((x) => {
 // })
 
 
-console.log(newArr)
+let obj = {
+    name: 'jatin',
+    skill: 'mern stack developer'
+}
+let key = "skill"
+obj = {
+    ...obj, [key]: 'magan'
+}
+
+console.log(obj)
