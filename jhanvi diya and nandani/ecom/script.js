@@ -509,7 +509,7 @@ let renderProducts = (div, items) => {
 
 
 function TotalPrice() {
-    totalCartPrice.innerHTML = cartArr.reduce((total, product) => total += Math.round((product.price / 100) * (100 - product.discount)), 0)
+    totalCartPrice.innerHTML = cartArr.reduce((total, product) => total += Math.round((product.price / 100) * (100 - product.discount)) * product.qty, 0)
 }
 
 
@@ -523,7 +523,25 @@ function cartToggle() {
     sidecart.classList.toggle('active')
 }
 
-
+function renderCart() {
+    cartBody.innerHTML = cartArr.map((x) => {
+        return `
+<div class="product">
+    <div class="img">
+        <img src="${x.img}" alt="">
+    </div>
+    <h2>${x.title}</h2>
+    <div>
+<div class="qty">
+    <button onclick='qtyIncrease(${x.id})'>+</button>
+    <span>${x.qty}</span>
+    <button onclick='qtyDecrease(${x.id})'>-</button>
+</div>
+<del>₹${x.price}</del> <span>₹${Math.floor((x.price / 100) * (100 - x.discount)) * x.qty}</span></div>
+    <button onclick='remove(${x.id})'>Remove</button>
+</div>`
+    }).join('')
+}
 
 function AddToCart(id) {
     let product = products.find((x) => x.id == id)
@@ -533,18 +551,8 @@ function AddToCart(id) {
         alert('product already exists in cart!')
     } else {
         cartArr.push(product)
+        renderCart()
 
-        cartBody.innerHTML = cartArr.map((x) => {
-            return `
-    <div class="product">
-        <div class="img">
-            <img src="${x.img}" alt="">
-        </div>
-        <h2>${x.title}</h2>
-        <h3><del>₹${x.price}</del> <span>₹${Math.floor((x.price / 100) * (100 - x.discount))}</span></h3>
-        <button onclick='remove(${x.id})'>Remove</button>
-    </div>`
-        }).join('')
     }
     cartLength.innerHTML = cartArr.length
 
@@ -556,17 +564,8 @@ function remove(id) {
     let newArr = cartArr.filter((x) => x.id != id)
     cartArr = newArr
 
-    cartBody.innerHTML = cartArr.map((x) => {
-        return `
-<div class="product" data-aos="fade-right">
-    <div class="img">
-        <img src="${x.img}" alt="">
-    </div>
-    <h2>${x.title}</h2>
-    <h3><del>₹${x.price}</del> <span>₹${Math.floor((x.price / 100) * (100 - x.discount))}</span></h3>
-    <button onclick='remove(${x.id})'>Remove</button>
-</div>`
-    }).join('')
+    renderCart()
+
 
     cartLength.innerHTML = cartArr.length
     TotalPrice()
@@ -633,4 +632,20 @@ function ProductDetailsHandler(id) {
 
 function SetImage(img) {
     previewImage.src = img
+}
+function qtyIncrease(id) {
+    let product = cartArr.find((x) => x.id == id)
+    product.qty++
+    renderCart()
+    TotalPrice()
+
+}
+function qtyDecrease(id) {
+    let product = cartArr.find((x) => x.id == id)
+    product.qty--
+    renderCart()
+    TotalPrice()
+
+
+
 }
