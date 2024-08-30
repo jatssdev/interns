@@ -20,6 +20,11 @@
             padding: 0 50px;
             height: 80px;
             align-items: center;
+            position: fixed;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            width: 100%;
         }
 
         .navbar .links {
@@ -166,6 +171,28 @@
             height: 90vh;
             overflow-y: auto;
         }
+
+        .searchElem {
+            height: 100vh;
+            width: 100%;
+            position: fixed;
+            overflow: auto;
+            top: 80px;
+            display: none;
+            left: 0;
+            background-color: gray;
+            z-index: 10;
+        }
+
+        .close {
+            font-size: 25px;
+            position: fixed;
+            top: 100px;
+            z-index: 11;
+            display: none;
+            right: 20px;
+            color: white;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
@@ -173,6 +200,13 @@
 </head>
 
 <body>
+    <div class="close">
+        <i class="fa-solid fa-x"></i>
+    </div>
+    <div class="searchElem" id="searchElem">
+
+
+    </div>
     <div id="sidecart" class="sidecart">
         <div class="cartHead">
             <h2>Cart</h2>
@@ -194,6 +228,7 @@
         </div>
         <div class="cart" onclick="cartToggle()">
             <i class="fa-solid fa-shopping-bag"></i>
+            <span id="cartLength">0</span>
         </div>
     </div>
 

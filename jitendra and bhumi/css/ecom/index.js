@@ -322,5 +322,13 @@ function AddToCart(id) {
     let obj = products.find((x) => x.id == id)
     cartarr.push(obj)
     renderCart(cartBody, cartarr)
+    cartLength.innerHTML = cartarr.length
+}
+function remove(id) {
+    let newArr = cartarr.filter((x) => x.id != id)
+    cartarr = newArr
+    renderCart(cartBody, cartarr)
+    cartLength.innerHTML = cartarr.length
+
 
 }
