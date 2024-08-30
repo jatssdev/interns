@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" id="input">
+    <p id="res"></p>
+    <button onclick="Check()">Check</button>
+    <script>
+        function Check() {
+            try {
+
+                if (input.value > 100) throw 'value should be less then 100'
+                if (input.value < 10) throw 'value should be greater then 10'
+
+                res.innerHTML = 'input is okay'
+                res.style.color = 'green'
+
+
+            } catch (e) {
+                res.innerHTML = e
+                res.style.color = 'red'
+            }
+        }
+    </script>
+
+</body>
+
+</html>
