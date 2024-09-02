@@ -40,7 +40,6 @@ const Register = () => {
                 <div className='my-3'>
                     <button className='bg-black text-white px-6 py-2 rounded-sm'>Register</button>
                 </div>
-
             </form>
         </div>
     )
