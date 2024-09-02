@@ -273,6 +273,7 @@ const tshirt = [
         category: "tshirt",
     },
 ];
+let closeBtnVal = ''
 
 let products = [...earbuds, ...tshirt]
 
@@ -287,11 +288,13 @@ let products = [...earbuds, ...tshirt]
 let renderFunction = (elem, data) => {
     elem.innerHTML = data.map((x) => {
         return `<div class="product">
+       <div class='product2' onclick='productDetailsHandler(${x.id})'>
         <div class="img">
     <img src="${x.img}" alt="">
     </div>
     <h2>${x.title}</h2>
     <p><span>₹${x.price}</span></p>
+       </div>
     <button onclick='AddToCart(${x.id})'>Add To cart</button></div>
     `
     }).join('')
@@ -330,5 +333,57 @@ function remove(id) {
     renderCart(cartBody, cartarr)
     cartLength.innerHTML = cartarr.length
 
+
+}
+function SearchHandler() {
+    closeBtnVal = 'search';
+    let value = searchVal.value
+    let searchedProducts = products.filter((x) => x.title.toLowerCase().includes(value.toLowerCase()))
+    renderFunction(searchElem, searchedProducts)
+    searchElem.style.display = 'flex'
+    closeBtn.style.display = 'block'
+
+}
+function closeSearch(val) {
+    if (closeBtnVal === 'search') {
+        searchElem.style.display = 'none'
+    }
+    if (closeBtnVal === 'product') {
+        productDetails.style.display = 'none'
+    }
+    closeBtn.style.display = 'none'
+}
+function productDetailsHandler(id) {
+    closeBtnVal = 'product';
+
+    let product = products.find((x) => x.id == id)
+    productDetails.innerHTML = ` <div class="details">
+            <div class="col1">
+                <img src="${product.img}" alt="">
+                <div class="images">
+                    <div class="img">
+                        <img src="${product.img}" alt="">
+                    </div>
+                    <div class="img">
+                        <img src="${product.img2}" alt="">
+                    </div>
+                    <div class="img">
+                        <img src="${product.img3}" alt="">
+                    </div>
+                    <div class="img">
+                        <img src="${product.img4}" alt="">
+                    </div>
+                    <div class="img">
+                        <img src="${product.im5}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col2">
+                <h2>${product.title}</h2>
+                <button>Add to Cart</button>
+            </div>
+        </div>`
+    productDetails.style.display = 'flex'
+    closeBtn.style.display = 'block'
 
 }
