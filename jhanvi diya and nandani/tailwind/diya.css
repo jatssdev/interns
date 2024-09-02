@@ -1,0 +1,11 @@
+.center {
+    text-align: center;
+}
+
+.display-flex {
+    display: flex;
+}
+
+.bg-red {
+    background-color: red;
+}
