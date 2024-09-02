@@ -66,4 +66,7 @@ Route::post('/register', [userController::class, 'register'])->name('user.regist
 Route::post('/login', [userController::class, 'login'])->name('user.login');
 Route::get('/search', [userController::class, 'search'])->name('user.search');
 Route::post('/addtocart', [cartController::class, 'addtocart'])->name('user.addtocart');
+Route::post('/removefromcart', [cartController::class, 'remove'])->name('user.removecart');
+Route::post('/qtyinc', [cartController::class, 'qtyinc'])->name('cart.inc');
+Route::post('/qtydec', [cartController::class, 'qtydec'])->name('cart.dec');
 Route::get('/cart', [cartController::class, 'index'])->name('user.cart');

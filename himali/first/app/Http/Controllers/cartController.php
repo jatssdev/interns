@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\cart;
+use App\Models\product;
 use Auth;
 use DB;
 use Illuminate\Http\Request;
@@ -42,21 +43,46 @@ class cartController extends Controller
             $id = Auth::user()->id;
             $products = DB::table('carts')
                 ->join('products', 'carts.productid', '=', 'products.id')
-                ->select('products.*', 'carts.quantity')
+                ->select('products.*', 'carts.quantity', 'carts.id as cartid')
                 ->where('carts.userid', $id)
                 ->get();
+            $total = $products->sum(function ($cart) {
+                return $cart->price * $cart->quantity;
+            });
 
-            return view('user.cart', compact('products'));
+            return view('user.cart', compact('products', 'total'));
         } else {
             return redirect()->back()->with('error', 'user should be login first');
         }
     }
 
-    function remove()
+    function remove(Request $request)
     {
         $id = Auth::user()->id;
+        $productid = $request->input('productid');
+        $product = cart::find($productid);
+        $product->delete();
+        return redirect()->back()->with('success', 'product deleted successfully');
 
-        
+        // $product = cart::where('productid', $productid)->where('userid', $id)->first();
+
+
+    }
+    function qtyinc(Request $request)
+    {
+        $cartid = $request->input('cartid');
+        $product = cart::find($cartid);
+        $product->quantity++;
+        $product->save();
+        return redirect()->back();
+    }
+    function qtydec(Request $request)
+    {
+        $cartid = $request->input('cartid');
+        $product = cart::find($cartid);
+        $product->quantity--;
+        $product->save();
+        return redirect()->back();
 
     }
 }
