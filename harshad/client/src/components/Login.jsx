@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const Login = ({ checkLOgin }) => {
+const Login = ({ VerifyUser }) => {
     let navigate = useNavigate()
     const [formData, setFormData] = useState({
 
@@ -26,11 +26,12 @@ const Login = ({ checkLOgin }) => {
             const response = await axios.post('http://localhost:8080/api/login', formData); // register request to backend 
             console.log('User registered:', response.data);
             alert(response.data.resMsg)
-            localStorage.setItem('user', JSON.stringify(response.data.userData))
-            checkLOgin()
+            localStorage.setItem('token', response.data.token)
+            VerifyUser()
             navigate('/')
         } catch (error) {
             console.error('There was an error registering the user:', error);
+            alert('error from backend')
         }
     };
 
