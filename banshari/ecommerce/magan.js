@@ -6,4 +6,7 @@ let arr = [344, 3, 324, 32544, 2345, 3264436, 346, 3546, 35, 437563, 54]
 
 let filtered = arr.filter((x) => x != 324)
 
-console.log(filtered)
+
+let str = 'hello coding cloud'
+
+console.log(str.includes('coding2'))

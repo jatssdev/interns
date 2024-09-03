@@ -1,21 +1,28 @@
 import { createContext, useEffect, useState } from 'react'
 import './App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom'
 import Cart from './comps/Cart'
 import Home from './comps/Home'
 import Header from './comps/Header'
 import { earbuds, shoes, tshirts, tshirtWomen } from './comps/products'
 import ProductDetails from './comps/ProductDetails'
+import Search from './comps/Search'
 export const MainContext = createContext()
 function App() {
+  let navigate = useNavigate()
+  let [searchVal, setSearchVal] = useState('')
+
   let [product, setProduct] = useState({
 
   })
-  let [products, setProducts] = useState([])
+  function SearchHandler(e) {
+    e.preventDefault()
+    navigate('/search')
+
+  }
+  let [products, setProducts] = useState([...earbuds, ...tshirtWomen, ...tshirts, ...shoes])
   let [cart, setCart] = useState([])
-  useEffect(() => {
-    setProducts([...earbuds, ...tshirtWomen, ...tshirts, ...shoes])
-  }, [])
+
   function AddToCart(id) {
     let obj = products.find((x) => x.id == id)
     let existing = cart.find((x) => x.id == id)
@@ -26,35 +33,45 @@ function App() {
     }
   }
   function RemoveCart(id) {
+
     // let filteredCart = cart.filter((x) => x.id !== id)
     // setCart(filteredCart)
-    let index = cart.findIndex((x) => x.id == id)
-    cart.splice(index, 1)
-    setCart([...cart])
+    let check = confirm('are you sure want to remove!')
+    if (check) {
+      let index = cart.findIndex((x) => x.id == id)
+      cart.splice(index, 1)
+      setCart([...cart])
+    } else {
+      alert('canceled')
+    }
+
 
 
   }
   return (
     <>
-      <BrowserRouter>
-        <MainContext.Provider value={
-          {
-            products,
-            AddToCart,
-            cart,
-            RemoveCart,
-            product,
-            setProduct
-          }
-        }>
-          <Header />
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/cart' element={<Cart />} />
-            <Route path='/product' element={<ProductDetails />} />
-          </Routes>
-        </MainContext.Provider>
-      </BrowserRouter>
+
+      <MainContext.Provider value={
+        {
+          products,
+          AddToCart,
+          cart,
+          RemoveCart, searchVal, setSearchVal,
+          product,
+          setProduct,
+
+          SearchHandler
+        }
+      }>
+        <Header />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='/product' element={<ProductDetails />} />
+          <Route path='/search' element={<Search />} />
+        </Routes>
+      </MainContext.Provider>
+
     </>
   )
 }
