@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .user {
+            width: 300px;
+            border: 1px solid black;
+        }
+
+        .user img {
+            width: 100%;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Arrays And Objects</h1>
+    <div id="res">
+
+    </div>
+
+    <script>
+        let student1 = {
+            name: 'jatin',
+            age: 20,
+            skill: 'mern stack developer'
+        }
+        let student2 = 'Dhwani'
+
+
+        let students = [
+            'jatin', 'dhwani', 'magan', 'himali'
+        ]
+
+        // console.log(students[0], students[3]) // access array's value
+        // console.log(student1['name']) // access objects
+        // res.innerHTML = student1.skill // access objects 
+
+
+        let employees = [
+            {
+                name: 'jatin',
+                skill: 'mern stack developer',
+                image: 'https://m.media-amazon.com/images/I/51DwGfBvcBL._AC_UF894,1000_QL80_.jpg'
+            },
+            {
+                name: 'dhwani',
+                skill: 'react developer',
+                image: 'https://m.media-amazon.com/images/I/51DwGfBvcBL._AC_UF894,1000_QL80_.jpg'
+            },
+            {
+                name: 'himali',
+                skill: 'laravel developer',
+                image: 'https://m.media-amazon.com/images/I/51DwGfBvcBL._AC_UF894,1000_QL80_.jpg'
+            },
+        ]
+
+        // console.log(employees[1]['name']) 
+        // console.log(employees[1].name)
+        // res.innerHTML = '<h1>' + employees[1].name + '</h1>'
+        // res.innerHTML = `<h1>${employees[1].name}  </h1>`
+        res.innerHTML = ` <div class="user">
+            <img src="${employees[1].image}" alt="">
+            <h2 id="name">${employees[1].name}</h2>
+            <p>${employees[1].skill}</p>
+        </div>`
+
+    </script>
+</body>
+
+</html>
