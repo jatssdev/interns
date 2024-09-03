@@ -1,0 +1,10 @@
+.navbar {
+  display: flex;
+  gap: 20px;
+  height: 60px;
+  background-color: tomato;
+  align-items: center;
+  color: white;
+  padding: 0 100px;
+  font-size: 20px;
+}
