@@ -306,10 +306,16 @@ let renderCart = (elem, data) => {
     <img src="${x.img}" alt="">
     </div>
     <h2>${x.title}</h2>
-    <p><span>₹${x.price}</span></p>
+    <div class="qty">
+    <button onclick="qtyInc(${x.id})">+</button>
+    <span>${x.qty}</span>
+    <button onclick="qtyDec(${x.id})">-</button>
+</div>
+    <p><span>₹${x.price * x.qty}</span></p>
     <button onclick='remove(${x.id})'>remove</button></div>
     `
     }).join('')
+    cartTotalHandler()
 }
 
 let cartarr = []
@@ -326,6 +332,8 @@ function AddToCart(id) {
     cartarr.push(obj)
     renderCart(cartBody, cartarr)
     cartLength.innerHTML = cartarr.length
+
+
 }
 function remove(id) {
     let newArr = cartarr.filter((x) => x.id != id)
@@ -334,7 +342,15 @@ function remove(id) {
     cartLength.innerHTML = cartarr.length
 
 
+
 }
+
+function cartTotalHandler() {
+    let total = cartarr.reduce((acc, x) => acc + (x.price * x.qty), 0)
+    cartTotal.innerHTML = total
+}
+cartTotalHandler()
+
 function SearchHandler() {
     closeBtnVal = 'search';
     let value = searchVal.value
@@ -385,5 +401,19 @@ function productDetailsHandler(id) {
         </div>`
     productDetails.style.display = 'flex'
     closeBtn.style.display = 'block'
+
+}
+function qtyInc(id) {
+    let product = cartarr.find((x) => x.id == id)
+    product.qty++
+
+    renderCart(cartBody, cartarr)
+
+}
+function qtyDec(id) {
+    let product = cartarr.find((x) => x.id == id)
+    product.qty--
+
+    renderCart(cartBody, cartarr)
 
 }
