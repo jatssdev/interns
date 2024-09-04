@@ -8,3 +8,21 @@
   padding: 0 100px;
   font-size: 20px;
 }
+
+.navbar .active {
+  color: white;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: black;
+}
+
+.dark {
+  background-color: black;
+  color: white;
+}
+
+.home {
+  height: 100vh;
+}

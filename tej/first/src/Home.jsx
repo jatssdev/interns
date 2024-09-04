@@ -1,7 +1,11 @@
-function Home() {
+function Home({ dark }) {
+
     return (
         <>
-            <h1>Hello world</h1>
+            <div className={dark ? 'home dark' : 'home light'}>
+
+                <h1>Hello world</h1>
+            </div>
         </>
     )
 }
