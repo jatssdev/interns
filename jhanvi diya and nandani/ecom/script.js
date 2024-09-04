@@ -633,6 +633,7 @@ function ProductDetailsHandler(id) {
 function SetImage(img) {
     previewImage.src = img
 }
+
 function qtyIncrease(id) {
     let product = cartArr.find((x) => x.id == id)
     product.qty++
@@ -645,7 +646,4 @@ function qtyDecrease(id) {
     product.qty--
     renderCart()
     TotalPrice()
-
-
-
 }

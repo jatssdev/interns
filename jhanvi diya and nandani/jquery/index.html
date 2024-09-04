@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* #obj {
+            display: none;
+        } */
+    </style>
+</head>
+
+<body>
+    <h1 id="heading">Hello Coding Cloud</h1>
+    <h1 id="obj">Lorem, ipsum dolor.</h1>
+    <button>Click</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(() => {
+            $('#heading').html('Jhanvi And Diya') // same as ---> document.getElementById('heading').innerHTML = 'Jhanvi And Diya'
+            $('button').click(function () {
+                // $('#obj').html('Jhanvi And Diya')
+                // $('#obj').toggle(2000)
+                alert($('#obj').html())
+            })
+        })
+    </script>
+</body>
+
+</html>
