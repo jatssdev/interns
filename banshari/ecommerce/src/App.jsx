@@ -7,6 +7,7 @@ import Header from './comps/Header'
 import { earbuds, shoes, tshirts, tshirtWomen } from './comps/products'
 import ProductDetails from './comps/ProductDetails'
 import Search from './comps/Search'
+import Swal from 'sweetalert2' // npm i sweetalert2
 export const MainContext = createContext()
 function App() {
   let navigate = useNavigate()
@@ -33,7 +34,6 @@ function App() {
     }
   }
   function RemoveCart(id) {
-
     // let filteredCart = cart.filter((x) => x.id !== id)
     // setCart(filteredCart)
     let check = confirm('are you sure want to remove!')
@@ -44,9 +44,30 @@ function App() {
     } else {
       alert('canceled')
     }
+  }
+  function QtyInc(id) {
+    let product = cart.find((x) => x.id == id)
+    product.qty++
+    setCart([...cart])
+  }
+  function QtyDec(id) {
+    let product = cart.find((x) => x.id == id)
+    if (product.qty <= 1) {
+      let check = confirm('do you want to remove this item from cart ?')
+      if (check) {
+        RemoveCart(id)
+      } else {
+        Swal.fire({
+          title: "Cancel",
+          text: "You Canceled!",
+          icon: "error"
+        });
+      }
+    } else {
 
-
-
+      product.qty--
+    }
+    setCart([...cart])
   }
   return (
     <>
@@ -59,7 +80,8 @@ function App() {
           RemoveCart, searchVal, setSearchVal,
           product,
           setProduct,
-
+          QtyInc,
+          QtyDec,
           SearchHandler
         }
       }>
