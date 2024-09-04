@@ -487,9 +487,11 @@ let allProducts = [...earbuds, ...tshirts, ...tshirtsWomen, ...shoes]
 let cartarr = []
 // let newArr = earbuds.concat(shoes,tshirts)
 
+let ref = false;
 function renderProducts(element, data) {
     element.innerHTML = data.map(function (x) {
-        return `<div class="product">
+        ref = !ref
+        return `<div data-aos='${ref ? "fade-up" : "fade-down"}' class="product">
     <div onclick='SingleProduct(${x.id})'>
     <img src="${x.img}" altI="">
     <h2>${x.title}</h2>

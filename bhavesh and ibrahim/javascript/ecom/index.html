@@ -1,3 +1,5 @@
+<!-- https://swiperjs.com/demos -->
+<!-- https://michalsnik.github.io/aos/ -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,9 +11,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
 </head>
 
 <body>
+
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="https://t3.ftcdn.net/jpg/04/65/46/52/360_F_465465254_1pN9MGrA831idD6zIBL7q8rnZZpUCQTy.jpg"
+                    alt="">
+            </div>
+            <div class="swiper-slide"><img
+                    src="https://t3.ftcdn.net/jpg/04/65/46/52/360_F_465465254_1pN9MGrA831idD6zIBL7q8rnZZpUCQTy.jpg"
+                    alt=""></div>
+            <div class="swiper-slide"><img
+                    src="https://t3.ftcdn.net/jpg/04/65/46/52/360_F_465465254_1pN9MGrA831idD6zIBL7q8rnZZpUCQTy.jpg"
+                    alt=""></div>
+
+        </div>
+
+    </div>
+
 
     <div class="singleProductPage" id="singleProductPage">
         <i class="fa-solid fa-x" onclick="closeSingleProduct()"></i>
@@ -60,6 +83,26 @@
     <div id="shoesWrapper" class="wrapper">
 
     </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 30,
+            centeredSlides: true,
+            // slidesPerView: 2,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+
+        });
+    </script>
 
     <script src="./script.js"></script>
 </body>
