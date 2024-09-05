@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .btnWrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+
+        .calculator input,
+        button {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .calculator {
+            width: 400px;
+            border: 1px solid black;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <input type="text" id="display" disabled />
+        <div class="btnWrapper">
+            <button onclick="HandleCalculate(event)">1</button>
+            <button onclick="HandleCalculate(event)">2</button>
+            <button onclick="HandleCalculate(event)">3</button>
+            <button onclick="HandleCalculate(event)">*</button>
+            <button onclick="HandleCalculate(event)">4</button>
+            <button onclick="HandleCalculate(event)">5</button>
+            <button onclick="HandleCalculate(event)">6</button>
+            <button onclick="HandleCalculate(event)">+</button>
+            <button onclick="HandleCalculate(event)">7</button>
+            <button onclick="HandleCalculate(event)">8</button>
+            <button onclick="HandleCalculate(event)">9</button>
+            <button onclick="HandleCalculate(event)">-</button>
+            <button onclick="HandleClear()">C</button>
+            <button onclick="HandleCalculate(event)">0</button>
+            <button onclick="HandleEval()">=</button>
+            <button onclick="HandleCalculate(event)">/</button>
+        </div>
+    </div>
+
+
+
+    <script>
+        let values = ''
+        function HandleCalculate(e) {
+            values += e.target.innerHTML
+
+            display.value = values
+
+        }
+        function HandleEval() {
+            display.value = eval(values)
+        }
+        function HandleClear() {
+            display.value = 0
+        }
+
+    </script>
+</body>
+
+</html>
