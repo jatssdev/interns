@@ -1,10 +1,34 @@
-function Home({ dark }) {
+import { tshirts } from "./Products"
+
+function Home({ products }) {
 
     return (
         <>
-            <div className={dark ? 'home dark' : 'home light'}>
-
-                <h1>Hello world</h1>
+            <h1>Earbuds</h1>
+            <div className="wrapper">
+                {
+                    products.map((x) => {
+                        return <div className="product">
+                            <img src={x.img} alt="" />
+                            <h2>{x.title}</h2>
+                            <h3>₹{x.price}</h3>
+                            <button>Add To cart</button>
+                        </div>
+                    })
+                }
+            </div>
+            <h1>Tshirts</h1>
+            <div className="wrapper">
+                {
+                    tshirts.map((x) => {
+                        return <div className="product">
+                            <img src={x.img} alt="" />
+                            <h2>{x.title}</h2>
+                            <h3>₹{x.price}</h3>
+                            <button>Add To cart</button>
+                        </div>
+                    })
+                }
             </div>
         </>
     )

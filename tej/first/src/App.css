@@ -26,3 +26,29 @@
 .home {
   height: 100vh;
 }
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 50px;
+}
+
+.wrapper img {
+  width: 100%;
+}
+
+.wrapper .product {
+  box-shadow: 0 3px 10px rgb(212, 212, 212);
+  padding: 15px;
+
+}
+
+.wrapper .product button {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+}

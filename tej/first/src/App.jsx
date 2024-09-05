@@ -7,7 +7,9 @@ import Home from './Home'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import UseState from './UseState'
 import { useState } from 'react'
+import { earbuds } from './Products'
 function App() {
+  let [products, setProducts] = useState(earbuds)
   let [dark, setDark] = useState(false)
   function DarkMode() {
     setDark(!dark)
@@ -18,7 +20,7 @@ function App() {
       <BrowserRouter>
         <Header dark={dark} DarkMode={DarkMode} />
         <Routes>
-          <Route path='/' element={<Home dark={dark} />} />
+          <Route path='/' element={<Home products={products} dark={dark} />} />
           <Route path='/state' element={<UseState dark={dark} />} />
           <Route path='/about' element={<About />} />
         </Routes>
