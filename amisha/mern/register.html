@@ -59,6 +59,10 @@
                 .then(response => response.json())
                 .then(data => {
                     // Handle success
+                    name.value = ''
+                    email.value = ''
+                    password.value = ''
+                    alert(data.msg)
                     console.log('Success:', data);
                 })
                 .catch((error) => {

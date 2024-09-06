@@ -1,8 +1,9 @@
 let express = require('express')
 let cors = require('cors')
 let app = express()
-
+require('./conn') // import mongo db connection file 
 // configurations 
+let User = require('./User')
 
 app.use(cors())
 app.use(express.json())
@@ -182,12 +183,24 @@ app.get('/products', (req, res) => {
     res.send(earbud)
 })
 
-app.post('/register', (req, res) => {
-    console.log(req.body)
-    res.send({ msg: 'sucess' })
+// M = Mongodb E = Express R = React N= Nodejs 
+
+app.get('/users', async (req, res) => {
+    let users = await User.find()
+    res.send(users)
 })
 
+app.post('/register', async (req, res) => {
+    let user = User({ // create new user with client's values
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password,
+    })
 
+    let result = await user.save() // save data to database
+
+    res.send({ msg: 'sucess' })
+})
 
 
 
