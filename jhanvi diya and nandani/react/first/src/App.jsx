@@ -4,12 +4,17 @@
 
 // npm run dev --> to run project
 
+// npm install react-router-dom --> install react router 
 
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// npm install react-icons --> install react icons
+
+
+import Home from './components/Home'
+import Header from './components/Header'
 import './App.css'
 import ImgHome from './assets/react.svg'
+import About from './components/About'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 function App() {
 
   let name = 'diya'
@@ -17,10 +22,14 @@ function App() {
 
   return (
     <>
-      <img src={ImgHome} alt="" />
-      <h1 style={headingStyle}>Hello</h1 >
-      <p>Lorem, ipsum dolor.</p>
-      <h3>Hello {name}</h3>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/about' element={<About />} />
+        </Routes>
+
+      </BrowserRouter>
     </>
   )
 }
