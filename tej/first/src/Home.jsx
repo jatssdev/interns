@@ -1,6 +1,6 @@
 import { tshirts } from "./Products"
 
-function Home({ products }) {
+function Home({ products, AddToCart }) {
 
     return (
         <>
@@ -12,7 +12,7 @@ function Home({ products }) {
                             <img src={x.img} alt="" />
                             <h2>{x.title}</h2>
                             <h3>₹{x.price}</h3>
-                            <button>Add To cart</button>
+                            <button onClick={() => AddToCart(x.id)}>Add To cart</button>
                         </div>
                     })
                 }
@@ -25,7 +25,7 @@ function Home({ products }) {
                             <img src={x.img} alt="" />
                             <h2>{x.title}</h2>
                             <h3>₹{x.price}</h3>
-                            <button>Add To cart</button>
+                            <button onClick={() => AddToCart(x.id)}>Add To cart</button>
                         </div>
                     })
                 }
