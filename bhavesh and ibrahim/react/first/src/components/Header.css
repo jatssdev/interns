@@ -1,0 +1,27 @@
+.navbar {
+    display: flex;
+    box-shadow: 0 3px 10px rgb(225, 225, 225);
+    height: 80px;
+    padding: 0 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .links {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+.navbar a.active {
+    color: tomato;
+}
+
+a:active {
+    font-size: 40px;
+}
