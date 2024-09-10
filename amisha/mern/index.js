@@ -203,6 +203,12 @@ app.post('/register', async (req, res) => {
 })
 
 
+app.delete('/user/:id', async (req, res) => {
+    let id = req.params.id
+    let user = await User.findByIdAndDelete(id)
+    res.send('deleted')
+})
+
 
 
 app.listen(9000, () => {
