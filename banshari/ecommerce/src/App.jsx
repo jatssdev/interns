@@ -8,6 +8,7 @@ import { earbuds, shoes, tshirts, tshirtWomen } from './comps/products'
 import ProductDetails from './comps/ProductDetails'
 import Search from './comps/Search'
 import Swal from 'sweetalert2' // npm i sweetalert2
+import Register from './comps/Register'
 export const MainContext = createContext()
 function App() {
   let navigate = useNavigate()
@@ -91,6 +92,7 @@ function App() {
           <Route path='/cart' element={<Cart />} />
           <Route path='/product' element={<ProductDetails />} />
           <Route path='/search' element={<Search />} />
+          <Route path='/register' element={<Register />} />
         </Routes>
       </MainContext.Provider>
 
