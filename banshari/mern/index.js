@@ -1,9 +1,13 @@
+// npm init --> initialise node package manager 
+// npm i cors express // install express and cors
+
 let express = require('express') // same as import express from 'express'
 const app = express()
 let cors = require('cors')
 app.use(cors())
 app.use(express.json())
-
+require('./conn')
+let User = require('./User')
 
 
 app.get('/', (req, res) => {
@@ -15,11 +19,26 @@ app.get('/users', (req, res) => {
     res.send(arr)
 })
 
-app.post('/register', (req, res) => {
-    console.log(req.body)
-    res.send({ success: true, message: 'user Registered', user: req.body })
-})
 
+app.post('/register', async (req, res) => {
+    try {
+        let newUser = User({
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password
+        })
+        let existing = await User.findOne({ email: req.body.email })
+        
+        if (existing) {
+            res.send({ success: false, message: 'user already exists' })
+        } else {
+            let result = await newUser.save()
+            res.send({ success: true, message: 'user Registered', user: result })
+        }
+    } catch (e) {
+        res.send({ success: false, message: e })
+    }
+})
 
 
 app.listen(9000, () => {
