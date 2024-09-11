@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Fetch Method in Js</h1>
+
+    <div id="wrapper">
+
+    </div>
+
+
+
+
+
+    <script>
+        let api = 'https://dummyjson.com/products?limit=100'
+
+
+
+        let getAllProducts = async () => {
+            let result = await fetch(api)
+            let data = await result.json()
+
+            wrapper.innerHTML = data.products.map((x) => {
+                return `<h1>${x.title}</h1>`
+            })
+        }
+        getAllProducts()
+    </script>
+
+
+
+
+
+</body>
+
+</html>

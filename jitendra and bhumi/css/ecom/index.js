@@ -1,5 +1,5 @@
 
-
+AOS.init();
 
 const earbuds = [
     {
@@ -286,8 +286,10 @@ let products = [...earbuds, ...tshirt]
 // </div>`
 //     }
 let renderFunction = (elem, data) => {
+    let ref = false
     elem.innerHTML = data.map((x) => {
-        return `<div class="product">
+        ref = !ref
+        return `<div data-aos="${ref ? 'fade-up' : 'fade-down'}" class="product">
        <div class='product2' onclick='productDetailsHandler(${x.id})'>
         <div class="img">
     <img src="${x.img}" alt="">
@@ -417,3 +419,20 @@ function qtyDec(id) {
     renderCart(cartBody, cartarr)
 
 }
+var swiper = new Swiper(".mySwiper", {
+    spaceBetween: 30,
+    slidesPerView: 2,
+    centeredSlides: true,
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+});
