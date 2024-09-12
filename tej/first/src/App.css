@@ -52,3 +52,8 @@
   padding: 10px;
   width: 100%;
 }
+
+.quantity {
+  display: flex;
+  margin: 10px 0;
+}

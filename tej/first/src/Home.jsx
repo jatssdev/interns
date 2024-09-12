@@ -1,6 +1,9 @@
+import { useContext } from "react"
 import { tshirts } from "./Products"
+import { mainContext } from "./App"
 
-function Home({ products, AddToCart }) {
+function Home() {
+    let { products, AddToCart } = useContext(mainContext)
 
     return (
         <>
