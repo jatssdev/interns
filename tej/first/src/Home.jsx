@@ -3,7 +3,7 @@ import { tshirts } from "./Products"
 import { mainContext } from "./App"
 
 function Home() {
-    let { products, AddToCart } = useContext(mainContext)
+    let { products, AddToCart, singleProductHandler } = useContext(mainContext)
 
     return (
         <>
@@ -12,9 +12,11 @@ function Home() {
                 {
                     products.map((x) => {
                         return <div className="product">
-                            <img src={x.img} alt="" />
-                            <h2>{x.title}</h2>
-                            <h3>₹{x.price}</h3>
+                            <div onClick={() => singleProductHandler(x.id)}>
+                                <img src={x.img} alt="" />
+                                <h2>{x.title}</h2>
+                                <h3>₹{x.price}</h3>
+                            </div>
                             <button onClick={() => AddToCart(x.id)}>Add To cart</button>
                         </div>
                     })
@@ -25,9 +27,11 @@ function Home() {
                 {
                     tshirts.map((x) => {
                         return <div className="product">
-                            <img src={x.img} alt="" />
-                            <h2>{x.title}</h2>
-                            <h3>₹{x.price}</h3>
+                            <div onClick={() => singleProductHandler(x.id)}>
+                                <img src={x.img} alt="" />
+                                <h2>{x.title}</h2>
+                                <h3>₹{x.price}</h3>
+                            </div>
                             <button onClick={() => AddToCart(x.id)}>Add To cart</button>
                         </div>
                     })

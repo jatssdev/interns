@@ -10,6 +10,7 @@ import { createContext, useState } from 'react'
 import { earbuds, tshirts } from './Products'
 import Cart from './Cart'
 import Search from './Search'
+import ProductDetails from './ProductDetails'
 
 export let mainContext = createContext()
 
@@ -21,6 +22,7 @@ function App() {
   let [dark, setDark] = useState(false)
   let [searchVal, setSearchVal] = useState('')
   let [search, setSearch] = useState([])
+  let [product, setProduct] = useState({})
   function DarkMode() {
     setDark(!dark)
   }
@@ -58,6 +60,13 @@ function App() {
     navigate('/search')
 
   }
+  let singleProductHandler = (id) => {
+    let find = allproducts.find((x) => x.id == id)
+    let changedProduct = { ...find, images: [find.img, find.img2, find.img3, find.img4, find.img5] }
+    console.log(changedProduct)
+    setProduct(changedProduct)
+    navigate('/product')
+  }
   let contextValues = {
     setSearchVal,
     SearchHandler,
@@ -71,7 +80,9 @@ function App() {
     qtyInc,
     qtyDec,
     Remove,
-    search
+    search,
+    product,
+    singleProductHandler
 
   }
 
@@ -85,6 +96,7 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='/cart' element={<Cart qtyInc={qtyInc} qtyDec={qtyDec} Remove={Remove} cart={cart} />} />
           <Route path='/search' element={<Search search={search} />} />
+          <Route path='/product' element={<ProductDetails />} />
         </Routes>
       </mainContext.Provider>
 
