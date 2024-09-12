@@ -15,6 +15,7 @@ import './App.css'
 import ImgHome from './assets/react.svg'
 import About from './components/About'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import State from './components/State'
 function App() {
 
   let name = 'diya'
@@ -27,8 +28,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
+          <Route path='/state' element={<State />} />
         </Routes>
-
       </BrowserRouter>
     </>
   )
