@@ -1,9 +1,9 @@
 import React from 'react'
 
-const About = () => {
+const About = ({ user }) => {
     return (
         <div>
-            about
+            <h1>my name is {user.name}</h1>
 
         </div>
     )

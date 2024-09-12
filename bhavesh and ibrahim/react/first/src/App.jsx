@@ -12,9 +12,17 @@ import Home from './components/Home'
 import About from './components/About'
 import Contact from './components/Contact'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import State from './components/State'
+import Ref from './components/Ref'
 function App() {
 
-  let name = 'Jatin'
+  let [user, setUser] = useState({
+    name: "Rahul",
+    age: 25
+
+  })
+
+
 
   return (
     <>
@@ -23,11 +31,16 @@ function App() {
       <h1 className='heading'>Hello {name}</h1>
       <p>coding cloud</p> */}
         <Header />
+
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/contact' element={<Contact />} />
+          <Route path='/' element={<Home user={user} age={user.age} />} />
+          <Route path='/about' element={<About user={user} />} />
+          <Route path='/state' element={<State />} />
+          <Route path='/ref' element={<Ref />} />
+          {/* <Route path='/contact' element={<Contact />} /> */}
         </Routes>
+
+
 
       </BrowserRouter>
     </>
