@@ -14,9 +14,20 @@ app.get('/', (req, res) => {
 
     res.send('Hello from Backend')
 })
-app.get('/users', (req, res) => {
-    let arr = ['jatin', 'magan']
-    res.send(arr)
+// app.get('/users', (req, res) => {
+//     let arr = ['jatin', 'magan']
+//     res.send(arr)
+// })
+
+app.get('/users', async (req, res) => {
+    let users = await User.find();
+    res.send(users)
+
+})
+app.delete('/user/:id', async (req, res) => {
+    let id = req.params.id
+    let deletedUser = await User.findByIdAndDelete(id)
+    res.send({ success: true, message: 'user deleted ' })
 })
 
 
@@ -28,7 +39,7 @@ app.post('/register', async (req, res) => {
             password: req.body.password
         })
         let existing = await User.findOne({ email: req.body.email })
-        
+
         if (existing) {
             res.send({ success: false, message: 'user already exists' })
         } else {
