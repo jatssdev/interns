@@ -1,3 +1,6 @@
+
+
+
 import { createContext, useEffect, useState } from 'react'
 import './App.css'
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom'
@@ -9,6 +12,7 @@ import ProductDetails from './comps/ProductDetails'
 import Search from './comps/Search'
 import Swal from 'sweetalert2' // npm i sweetalert2
 import Register from './comps/Register'
+import Users from './comps/Users'
 export const MainContext = createContext()
 function App() {
   let navigate = useNavigate()
@@ -93,6 +97,7 @@ function App() {
           <Route path='/product' element={<ProductDetails />} />
           <Route path='/search' element={<Search />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/users' element={<Users />} />
         </Routes>
       </MainContext.Provider>
 
