@@ -8,6 +8,7 @@ app.use(cors())
 app.use(express.json())
 require('./conn')
 let User = require('./User')
+let bcrypt = require('bcryptjs')
 
 
 app.get('/', (req, res) => {
@@ -29,16 +30,30 @@ app.delete('/user/:id', async (req, res) => {
     let deletedUser = await User.findByIdAndDelete(id)
     res.send({ success: true, message: 'user deleted ' })
 })
+app.put('/user/:id', async (req, res) => {
+    let id = req.params.id
+    let deletedUser = await User.findByIdAndUpdate(id, { email: req.body.email, name: req.body.name })
+    res.send({ success: true, message: 'user updated ' })
+})
 
 
 app.post('/register', async (req, res) => {
     try {
+
+
+
+        let hash = await bcrypt.hash(req.body.password, 10)
+
         let newUser = User({
             name: req.body.name,
             email: req.body.email,
-            password: req.body.password
+            password: hash
         })
         let existing = await User.findOne({ email: req.body.email })
+        console.log(existing)
+
+        // let check = await bcrypt.compare(req.body.password, existing.password)
+        // console.log(check)
 
         if (existing) {
             res.send({ success: false, message: 'user already exists' })
@@ -47,6 +62,7 @@ app.post('/register', async (req, res) => {
             res.send({ success: true, message: 'user Registered', user: result })
         }
     } catch (e) {
+        console.log(e)
         res.send({ success: false, message: e })
     }
 })
