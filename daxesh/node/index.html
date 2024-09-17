@@ -15,7 +15,6 @@
     <script>
         async function myFunction() {
             let response = await fetch('http://localhost:9000/products')
-
             let data = await response.json()
             for (let x of data) {
                 wrapper.innerHTML += '<h1>' + x + '</h1>'
