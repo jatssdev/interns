@@ -11,6 +11,7 @@ import { earbuds, tshirts } from './Products'
 import Cart from './Cart'
 import Search from './Search'
 import ProductDetails from './ProductDetails'
+import Register from './Register'
 
 export let mainContext = createContext()
 
@@ -63,7 +64,7 @@ function App() {
   let singleProductHandler = (id) => {
     let find = allproducts.find((x) => x.id == id)
     let changedProduct = { ...find, images: [find.img, find.img2, find.img3, find.img4, find.img5] }
-    console.log(changedProduct)
+    // console.log(changedProduct)
     setProduct(changedProduct)
     navigate('/product')
   }
@@ -97,6 +98,7 @@ function App() {
           <Route path='/cart' element={<Cart qtyInc={qtyInc} qtyDec={qtyDec} Remove={Remove} cart={cart} />} />
           <Route path='/search' element={<Search search={search} />} />
           <Route path='/product' element={<ProductDetails />} />
+          <Route path='/register' element={<Register />} />
         </Routes>
       </mainContext.Provider>
 

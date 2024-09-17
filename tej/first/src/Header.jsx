@@ -10,6 +10,7 @@ function Header() {
                 <p><NavLink to={'/about'}>About</NavLink></p>
                 <p><NavLink to={'/state'}>Use State</NavLink></p>
                 <p><NavLink to={'/cart'}>Cart{cart.length}</NavLink></p>
+                <p><NavLink to={'/register'}>Register</NavLink></p>
                 <p><button onClick={DarkMode} > {dark ? 'Light Mode' : 'Dark Mode'}</button></p>
                 <div className="search">
                     <form onSubmit={SearchHandler}>
