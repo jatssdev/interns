@@ -1,9 +1,9 @@
 import React from 'react'
 
-const About = () => {
+const About = ({ value }) => {
     return (
         <>
-            <h1>About Page</h1>
+            <h1>About Page {value}</h1>
         </>
     )
 }
