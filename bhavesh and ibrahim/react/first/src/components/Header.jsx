@@ -12,6 +12,7 @@ const Header = () => {
                     <p><NavLink to={'/contact'}>Contact</NavLink></p>
                     <p><NavLink to={'/state'}>State</NavLink></p>
                     <p><NavLink to={'/ref'}>Ref</NavLink></p>
+                    <p><NavLink to={'/effect'}>Use Effect</NavLink></p>
                 </div>
             </div>
 
