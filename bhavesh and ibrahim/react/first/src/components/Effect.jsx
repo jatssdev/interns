@@ -11,7 +11,7 @@ const Effect = () => {
 
 
         let response = await axios.get(api)
-        
+
         console.log(response.data)
         setProducts(response.data.products)
     }
