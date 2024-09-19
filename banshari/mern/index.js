@@ -11,6 +11,7 @@ let User = require('./models/User')
 let userRoute = require('./routes/userRoute')
 const { auth } = require('./middleware/user')
 
+
 app.get('/', (req, res) => {
 
     res.send('Hello from Backend')

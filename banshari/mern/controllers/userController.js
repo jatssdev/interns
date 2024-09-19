@@ -1,5 +1,6 @@
 let bcrypt = require('bcryptjs')
 let User = require('../models/User')
+const { cloudinary } = require('../config/cloudinary')
 
 
 
@@ -9,12 +10,14 @@ async function registerHandler(req, res) {
 
 
 
+        let image = await cloudinary.uploader.upload(req.file.path)
         let hash = await bcrypt.hash(req.body.password, 10)
 
         let newUser = User({
             name: req.body.name,
             email: req.body.email,
-            password: hash
+            password: hash,
+            profile: image.secure_url
         })
         let existing = await User.findOne({ email: req.body.email })
         console.log(existing)
