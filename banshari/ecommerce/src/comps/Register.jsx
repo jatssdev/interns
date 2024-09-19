@@ -12,7 +12,7 @@ const Register = () => {
 
     async function HandleRegister(e) {
         e.preventDefault()
-        let result = await axios.post('http://localhost:9000/register', user)
+        let result = await axios.post('http://localhost:9000/user/register', user)
         console.log(result)
         alert(result.data.message)
     }

@@ -6,10 +6,10 @@ const app = express()
 let cors = require('cors')
 app.use(cors())
 app.use(express.json())
-require('./conn')
-let User = require('./User')
-let bcrypt = require('bcryptjs')
-
+require('./config/conn')
+let User = require('./models/User')
+let userRoute = require('./routes/userRoute')
+const { auth } = require('./middleware/user')
 
 app.get('/', (req, res) => {
 
@@ -19,10 +19,12 @@ app.get('/', (req, res) => {
 //     let arr = ['jatin', 'magan']
 //     res.send(arr)
 // })
+app.use('/user', userRoute)
 
-app.get('/users', async (req, res) => {
+
+app.get('/users', auth, async (req, res) => {
     let users = await User.find();
-    res.send(users)
+    res.send({ users: users })
 
 })
 app.delete('/user/:id', async (req, res) => {
@@ -37,35 +39,6 @@ app.put('/user/:id', async (req, res) => {
 })
 
 
-app.post('/register', async (req, res) => {
-    try {
-
-
-
-        let hash = await bcrypt.hash(req.body.password, 10)
-
-        let newUser = User({
-            name: req.body.name,
-            email: req.body.email,
-            password: hash
-        })
-        let existing = await User.findOne({ email: req.body.email })
-        console.log(existing)
-
-        // let check = await bcrypt.compare(req.body.password, existing.password)
-        // console.log(check)
-
-        if (existing) {
-            res.send({ success: false, message: 'user already exists' })
-        } else {
-            let result = await newUser.save()
-            res.send({ success: true, message: 'user Registered', user: result })
-        }
-    } catch (e) {
-        console.log(e)
-        res.send({ success: false, message: e })
-    }
-})
 
 
 app.listen(9000, () => {
