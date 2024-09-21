@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <h1 id="heading"></h1>
+
+    <script>
+        let getUSer = async () => {
+            let response = await fetch('http://localhost:9000/about')
+
+            let data = await response.json()
+
+            heading.innerHTML = 'Hello ' + data.name
+        }
+        getUSer()
+    </script>
+
+</body>
+
+</html>
