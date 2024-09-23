@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { mainContext } from '../App'
 
 const ProductWrapper = ({ heading, data }) => {
+    let { addToCart } = useContext(mainContext)
     return (
         <div>
             <h1>{heading}</h1>
@@ -13,7 +15,7 @@ const ProductWrapper = ({ heading, data }) => {
                                     <img src={x.img} alt="" />
                                     <h2>{x.title}</h2>
                                     <h3>{x.price}</h3>
-                                    <button>Add To Cart</button>
+                                    <button onClick={() => addToCart(x.id)}>Add To Cart</button>
                                 </div>
                             </>
                         )
