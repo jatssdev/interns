@@ -2,6 +2,8 @@ let User = require('../models/User')
 let bcrypt = require('bcryptjs')
 
 let registerHandler = async (req, res) => {
+    // console.log(req.body)
+    // console.log(req.file.path)
 
     let existing = await User.findOne({ email: req.body.email })
     console.log(existing)
@@ -12,7 +14,8 @@ let registerHandler = async (req, res) => {
         let newUser = User({
             name: req.body.name,
             email: req.body.email,
-            password: hash
+            password: hash,
+            profile: req.file.path
         })
         let result = await newUser.save()
         if (result) {

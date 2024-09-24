@@ -9,7 +9,6 @@ let User = require('./models/User')
 let bcrypt = require('bcryptjs')
 let userRoutes = require('./routes/userRoute')
 
-
 app.use('/api', userRoutes)
 app.get('/', (req, res) => {
     res.send('helo wolrd')
