@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Javascript Error handling</h1>
+
+    <input type="text" id="inputElem"><span id="res">
+
+    </span>
+    <hr>
+    <button onclick="checkValue()">check Val</button>
+
+    <script>
+        function checkValue() {
+            let val = inputElem.value
+
+            try {
+
+                if (isNaN(val)) {
+                    throw new Error("Value Should be Number");
+                }
+
+                if (val > 100) {
+                    throw new Error("Value Should be less than 100");
+                }
+                if (val < 10) {
+                    throw new Error("Value Should be greater than 10");
+
+                }
+
+                res.innerHTML = 'value is okay'
+                res.style.color = 'green'
+                console.log('value is okay')
+            } catch (e) {
+                res.innerHTML = e
+                res.style.color = 'red'
+                console.log(e)
+            } finally {
+                inputElem.value = ''
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
