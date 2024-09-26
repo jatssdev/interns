@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import './App.css'
 import Home from './components/Home'
 import Header from './components/Header'
@@ -8,8 +8,13 @@ import UseEffect from './components/UseEffect'
 import UseRef from './components/UseRef'
 import Register from './components/Register'
 export const MainContext = createContext()
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 function App() {
   let [user, setUser] = useState({ name: 'bansari' })
+  useEffect(() => {
+    Aos.init()
+  }, [])
   return (
     <>
       <BrowserRouter>

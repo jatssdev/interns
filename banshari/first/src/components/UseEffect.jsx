@@ -10,8 +10,8 @@ const UseEffect = () => {
     }, [val, val2])
     return (
         <div>
-            <h1>Main Value Is {mainVal}</h1>
-            <h1>Value 1 : {val} <button onClick={() => setVal(val + 1)}> Increase</button></h1>
+            <h1 data-aos="fade-up">Main Value Is {mainVal}</h1>
+            <h1 data-aos="zoom-in">Value 1 : {val} <button onClick={() => setVal(val + 1)}> Increase</button></h1>
             <h1>Value 2 : {val2} <button onClick={() => setVal2(val2 + 1)}> Increase</button></h1>
         </div>
     )

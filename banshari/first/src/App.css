@@ -7,3 +7,12 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+.swiper-pagination-bullet {
+  border-radius: 0 !important;
+  width: 20px !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: tomato !important;
+}
