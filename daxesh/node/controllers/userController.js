@@ -24,7 +24,6 @@ let registerHandler = async (req, res) => {
             res.send('user not created')
         }
     }
-
 }
 
 module.exports = { registerHandler }
