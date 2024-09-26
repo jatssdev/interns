@@ -9,18 +9,23 @@ export let mainContext = createContext()
 function App() {
   let [products, setProducts] = useState([...earbud, ...shoes, ...tshirt, ...tshirtWomen])
   let [cart, setCart] = useState([])
+
   let addToCart = (id) => {
     let product = products.find((x) => x.id == id)
     setCart([...cart, product])
   }
 
-
+  let remove = (id) => {
+    let newcart = cart.filter((x) => x.id != id)
+    setCart(newcart)
+  }
   return (
     <>
       <BrowserRouter>
         <mainContext.Provider value={{
           addToCart: addToCart,
-          cart: cart
+          cart: cart,
+          remove: remove
         }}>
           <Header />
           <Routes>
