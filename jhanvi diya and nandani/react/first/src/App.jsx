@@ -17,8 +17,9 @@ import About from './components/About'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import State from './components/State'
 import Contact from './components/Contect'
-import { useState } from 'react'
+import { createContext, useState } from 'react'
 import Ref from './components/Ref'
+export let mainContext = createContext()
 function App() {
 
   let name = 'diya'
@@ -26,17 +27,24 @@ function App() {
 
 
   let [value, setValue] = useState('nandani')
+  let contextValues = {
+    value: value
+  }
   return (
+
+
     <>
       <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path='/' element={<Home name={value} />} />
-          <Route path='/about' element={<About value={value} />} />
-          <Route path='/state' element={<State />} />
-          <Route path='/ref' element={<Ref />} />
-          <Route path='/contact' element={<Contact />} />
-        </Routes>
+        <mainContext.Provider value={contextValues}>
+          <Header />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/state' element={<State />} />
+            <Route path='/ref' element={<Ref />} />
+            <Route path='/contact' element={<Contact />} />
+          </Routes>
+        </mainContext.Provider>
       </BrowserRouter>
     </>
   )

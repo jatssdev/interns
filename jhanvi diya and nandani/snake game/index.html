@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game with Phaser.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #282c34;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        const config = {
+            type: Phaser.AUTO,
+            width: 800,
+            height: 600,
+            backgroundColor: '#1d1d1d',
+            scene: {
+                preload: preload,
+                create: create,
+                update: update
+            },
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    debug: false
+                }
+            }
+        };
+
+        let snake;
+        let food;
+        let cursors;
+        let direction = 'right';
+        let newDirection;
+        let snakeLength = 1;
+        let snakeBody = [];
+        let speed = 150;
+        let lastMoveTime = 0;
+        let moveInterval = 150;
+        let scene; // Declare a global reference to the scene
+
+        const game = new Phaser.Game(config);
+
+        function preload() {
+            this.load.image('food', 'https://raw.githubusercontent.com/photonstorm/phaser-examples/master/examples/assets/sprites/apple.png');
+        }
+
+        function create() {
+            cursors = this.input.keyboard.createCursorKeys();
+            scene = this; // Assign the scene context to the global reference
+
+            // Create the initial snake
+            snake = this.add.rectangle(100, 100, 16, 16, 0x00ff00);
+            snakeBody.push(snake);
+
+            // Create food
+            food = this.add.rectangle(Phaser.Math.Between(0, 800), Phaser.Math.Between(0, 600), 16, 16, 0xff0000);
+        }
+
+        function update(time) {
+            if (time - lastMoveTime >= moveInterval) {
+                moveSnake();
+                lastMoveTime = time;
+            }
+
+            handleInput();
+
+            if (Phaser.Geom.Intersects.RectangleToRectangle(snakeBody[0].getBounds(), food.getBounds())) {
+                growSnake();
+                repositionFood();
+            }
+        }
+
+        function handleInput() {
+            if (cursors.left.isDown && direction !== 'right') {
+                newDirection = 'left';
+            } else if (cursors.right.isDown && direction !== 'left') {
+                newDirection = 'right';
+            } else if (cursors.up.isDown && direction !== 'down') {
+                newDirection = 'up';
+            } else if (cursors.down.isDown && direction !== 'up') {
+                newDirection = 'down';
+            }
+        }
+
+        function moveSnake() {
+            direction = newDirection || direction;
+
+            let head = snakeBody[0];
+            let x = head.x;
+            let y = head.y;
+
+            if (direction === 'left') {
+                x -= 16;
+            } else if (direction === 'right') {
+                x += 16;
+            } else if (direction === 'up') {
+                y -= 16;
+            } else if (direction === 'down') {
+                y += 16;
+            }
+
+            // Check if the snake hits the boundaries
+            if (x >= 800 || x < 0 || y >= 600 || y < 0) {
+                resetGame();
+                return;
+            }
+
+            // Move the snake's body
+            Phaser.Actions.ShiftPosition(snakeBody, x, y, 1);
+        }
+
+        function growSnake() {
+            // Add a new part to the snake
+            let newPart = scene.add.rectangle(snake.x, snake.y, 16, 16, 0x00ff00);
+            snakeBody.push(newPart);
+        }
+
+        function repositionFood() {
+            food.x = Phaser.Math.Between(0, 800 - 16);
+            food.y = Phaser.Math.Between(0, 600 - 16);
+        }
+
+        function resetGame() {
+            snakeBody.forEach(part => part.destroy());
+            snakeBody = [];
+            snakeLength = 1;
+            snake = scene.add.rectangle(100, 100, 16, 16, 0x00ff00);
+            snakeBody.push(snake);
+            repositionFood();
+        }
+
+    </script>
+</body>
+
+</html>

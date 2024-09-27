@@ -1,0 +1,72 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  height: 80px;
+  width: 100%;
+  background-color: rgb(56, 46, 104);
+  position: fixed;
+  padding: 0 50px;
+}
+
+.navbar .links {
+  display: flex;
+  gap: 80px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 0 50px;
+}
+
+.wrapper img {
+  width: 100%;
+  height: 350px;
+}
+
+.wrapper .product {
+  box-shadow: 0 3px 10px rgb(228 228 228);
+  padding: 15px;
+
+}
+
+.wrapper h2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.wrapper button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+
+}
+
+
+.navbar .cart {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.cartElem {
+  padding-top: 100px;
+}

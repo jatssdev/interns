@@ -19,6 +19,9 @@ function App() {
     let newcart = cart.filter((x) => x.id != id)
     setCart(newcart)
   }
+
+
+  
   return (
     <>
       <BrowserRouter>

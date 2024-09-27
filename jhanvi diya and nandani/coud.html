@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Animation</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #87CEEB;
+            /* Sky blue background */
+            overflow: hidden;
+        }
+
+        .sky {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* General cloud styles */
+        .cloud {
+            position: absolute;
+            background: #FFF;
+            border-radius: 100px;
+            opacity: 0.9;
+            animation: moveClouds linear infinite;
+        }
+
+        @keyframes moveClouds {
+            0% {
+                transform: translateX(-300px);
+            }
+
+            100% {
+                transform: translateX(100vw);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sky"></div>
+
+    <script>
+        const sky = document.querySelector('.sky');
+
+        // Function to generate random clouds
+        function createCloud() {
+            const cloud = document.createElement('div');
+            cloud.classList.add('cloud');
+
+            // Random sizes and shapes
+            const width = Math.random() * 200 + 100; // Width between 100px to 300px
+            const height = width * 0.6; // Proportional height
+            cloud.style.width = `${width}px`;
+            cloud.style.height = `${height}px`;
+
+            // Random box-shadow for fluffy effect
+            const shadowX = Math.random() * 100 + 50; // Shadow distance between 50px to 150px
+            const shadowY = Math.random() * 50 + 25; // Shadow height
+            const shadowBlur = Math.random() * 50 + 50; // Blur effect
+            cloud.style.boxShadow = `${shadowX}px ${shadowY}px 0 ${shadowBlur}px #FFF`;
+
+            // Random position and speed
+            cloud.style.top = `${Math.random() * 80}vh`; // Random vertical position
+            cloud.style.animationDuration = `${Math.random() * 20 + 10}s`; // Random speed between 10s to 30s
+
+            sky.appendChild(cloud);
+
+            // Remove cloud after animation ends (to avoid too many DOM elements)
+            cloud.addEventListener('animationend', () => {
+                cloud.remove();
+            });
+        }
+
+        // Create clouds at regular intervals
+        setInterval(createCloud, 1000); // Create a new cloud every second
+
+    </script>
+</body>
+
+</html>
