@@ -3,8 +3,10 @@
 let express = require('express') // same as import express from 'express'
 const app = express()
 let cors = require('cors')
+let ejs = require('ejs')
 app.use(cors())
 app.use(express.json())
+app.set('view engine', 'ejs')
 require('./config/conn')
 let User = require('./models/User')
 let userRoute = require('./routes/userRoute')
@@ -16,6 +18,19 @@ app.get('/', (req, res) => {
 //     let arr = ['jatin', 'magan']
 //     res.send(arr)
 // })
+
+app.get('/user/delete/:id', async (req, res) => {
+    let id = req.params.id
+    await User.findByIdAndDelete(id)
+    res.redirect('/home')
+})
+
+app.get('/home', async (req, res) => {
+    let users = await User.find();
+    let products = []
+
+    res.render('home', { users: users, earbus: products })
+})
 app.use('/user', userRoute)
 app.get('/users', auth, async (req, res) => {
     let users = await User.find();
