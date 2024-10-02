@@ -4,7 +4,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { add } from './assets/redux/todoSlice'
+import { add, remove } from './assets/redux/todoSlice'
 
 function App() {
   const [val, setval] = useState('')
@@ -21,7 +21,11 @@ function App() {
         <div><input onChange={(e) => setval(e.target.value)} type="text" placeholder='Write Todo' /></div>
         <div><button>Add</button></div>
       </form>
-      <h1>{todos.todos}</h1>
+      {
+        todos.todos.map((todo, index) => {
+          return <h1>{todo} <button onClick={() => dispatch(remove(index))}>Remove</button></h1>
+        })}
+
     </>
   )
 }
