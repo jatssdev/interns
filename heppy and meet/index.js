@@ -4,7 +4,6 @@ function change() {
     heading.style.color = 'red'
 }
 function Dark() {
-
     document.body.style.backgroundColor = 'black'
     document.body.style.color = 'white'
 }
