@@ -5,38 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-
-        img {
-            width: 100%;
-        }
-
-        #wrapper {
-            display: grid;
-            gap: 30px;
-            padding: 100px;
-            grid-template-columns: 1fr 1fr 1fr;
-        }
-    </style>
 </head>
 
 <body>
-    <h1>Javascript Loops</h1>
-    <img src="" id="MainImage" alt="">
-    <div id="wrapper">
+    <h1>Array Loops And methods</h1>
+    <div id="wrapper"></div>
 
-    </div>
 
     <script>
-        // let arr = ['jatin', 'magan', 'paresh', 'deepak', 'man', 'koi']
-        // for (let i = 0; i < arr.length; i++) {
-        //     console.log(arr[i])
-        // }
+
+        let arr = [342, 25, 35, 3, 2, 423, 65324, 25, 4365]
+        let students = ['happy', 'meet', 'magan', 'deven', 'hiral']
+
         let data = [
             {
                 name: 'jatin', age: 25, img: 'https://render.fineartamerica.com/images/rendered/default/poster/7/8/break/images/artworkimages/medium/3/doremon-deepak-pengoria.jpg'
@@ -70,37 +50,24 @@
 
         ]
 
-        
-        // for (let i = 0; i < data.length; i++) {
-        //     console.log(data[i].name)
-        //     wrapper.innerHTML += ` <div class="card">
-        //     <img src="${data[i].img}" alt="">
-        //     <h2>Name : ${data[i].name} </h2>
-        //     <h3>Age : ${data[i].age} </h3>
-        // </div>`
-        // }
+        // arr.forEach((x) => {
+        //     wrapper.innerHTML += '<h1>' + x + '</h1>'
+        // })
 
-        // for (let i in data) {
-        //     console.log(data[i].name)
-        //     wrapper.innerHTML += ` <div class="card">
-        //     <img src="${data[i].img}" alt="">
-        //     <h2>Name : ${data[i].name} </h2>
-        //     <h3>Age : ${data[i].age} </h3>
-        // </div>`
-        // }
-        // hello
-        // for (let i of data) {
-        //     console.log(i.name)
-        //     wrapper.innerHTML += ` <div class="card">
-        //     <img src="${i.img}" alt="">
-        //     <h2>Name : ${i.name} </h2>
-        //     <h3>Age : ${i.age} </h3>
-        // </div>`
-        // }
-        // let imgSrc = 'https://gratisography.com/wp-content/uploads/2024/03/gratisography-funflower-800x525.jpg'
-        // MainImage.src = imgSrc
+        wrapper.innerHTML = data.map((i) => {
+            return ` <div class="card">
+          <img src="${i.img}" alt="">
+          <h2>Name : ${i.name} </h2>
+            <h3>Age : ${i.age} </h3>I
+        </div>`
+        }).join('')
+
+        wrapper.innerHTML = newArr
+
+
+
+
     </script>
-
 </body>
 
 </html>
