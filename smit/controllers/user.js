@@ -3,13 +3,17 @@ const User = require("../model/user")
 let bcrypt = require('bcryptjs')
 
 let Register = async (req, res) => {
+    let file = req.file.path
+
+
     let { name, email, password } = req.body
     try {
         let hash = await bcrypt.hash(password, 10)
         let user = User({
             name: name,
             email: email,
-            password: hash
+            password: hash,
+            profile: file
         })
 
         let existing = await User.findOne({ email })
@@ -29,9 +33,7 @@ let Register = async (req, res) => {
 }
 
 let Login = async (req, res) => {
-
     let { email, password } = req.body
-
     try {
         let user = await User.findOne({ email })
         if (!user) throw 'User Not Found!'
@@ -60,7 +62,7 @@ let Profile = async (req, res) => {
 
     try {
         let user = req.user
-        res.send({ user, success: true }) 
+        res.send({ user, success: true })
     } catch (e) {
         res.send({ message: e, success: false })
 
@@ -68,5 +70,6 @@ let Profile = async (req, res) => {
 
 
 }
+
 
 module.exports = { Register, Profile, Login }

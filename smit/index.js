@@ -8,7 +8,9 @@ app.use(express.json())
 require('./config/db')
 
 let userRoutes = require('./routes/user')
+let adminRoutes = require('./routes/admin')
 app.use('/api', userRoutes)
+app.use('/api/admin', adminRoutes)
 
 
 
