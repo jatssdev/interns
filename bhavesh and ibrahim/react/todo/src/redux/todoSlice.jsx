@@ -1,26 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
+
 let todoSlice = createSlice({
     name: 'todos',
     initialState: {
         todos: [
-            {
-                status: true,
-                title: 'buy new iphone'
-            },
-            {
-                status: true,
-                title: 'buy new iphone'
-            },
-            {
-                status: false,
-                title: 'buy new iphone'
-            },
-            {
-                status: true,
-                title: 'buy new iphone'
-            },
+
         ],
         loading: false,
     },
@@ -38,6 +24,10 @@ let todoSlice = createSlice({
             t.status = !t.status
 
             return state
+        },
+        editTodoHandler: (state, action) => {
+            state.todos.splice(action.payload.index, 1, action.payload)
+            return state
         }
     }
 })
@@ -46,4 +36,4 @@ let todoSlice = createSlice({
 
 export default todoSlice.reducer
 
-export const { add, status, remove } = todoSlice.actions
+export const { add, status, editTodoHandler, remove } = todoSlice.actions

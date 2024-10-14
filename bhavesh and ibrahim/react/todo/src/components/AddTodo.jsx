@@ -28,8 +28,8 @@ const AddTodo = () => {
             <div>
                 <Link to={'/'}>Back...</Link>
                 <form onSubmit={AddTodoHandler}>
-                    <div><input onChange={(e) => setDetails({ ...details, [e.target.name]: e.target.value })} type="text" name='title' placeholder='Todo' /></div>
-                    <div><input onChange={(e) => setDetails({ ...details, [e.target.name]: e.target.value })} type="date" name='date' placeholder='Date' /></div>
+                    <div><input onChange={(e) => setDetails({ ...details, title: e.target.value })} type="text" name='title' placeholder='Todo' /></div>
+                    <div><input onChange={(e) => setDetails({ ...details, date: e.target.value })} type="date" name='date' placeholder='Date' /></div>
                     <button>Add</button>
                 </form>
             </div>
