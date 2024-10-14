@@ -1,19 +1,42 @@
-// npm init 
-// npm install express 
-// npm install  cors 
-let express = require('express') // same as --> import express from 'express'
-let app = express()
+
+
+
+let express = require('express')
 let cors = require('cors')
-app.use(cors()) // use corse to solve cross origin errors
+let app = express()
+app.use(express.json())
+app.use(cors())
+require('./conn')
+
+let User = require('./userModel')
+
 
 app.get('/', (req, res) => {
-    res.send('<h1>hello</h1>')
-})
-app.get('/products', (req, res) => {
-
-    let arr = ['apple i phone 13', 'samsung galaxy ', 'redmi note ', 'realme mobiles']
-    res.send(arr)
+    console.log('hello world')
+    res.send('hello world')
 })
 
+app.post('/register', async (req, res) => {
+    let user = User({
+        name: req.body.name, email: req.body.email, password: req.body.password
+    })
+    let existing = await User.findOne({ email: req.body.email })
+    if (existing) {
+        res.send('user already exists')
+    } else {
+        let result = await user.save()
+        if (result) {
+            res.send('user registered successfully')
+        } else {
+            res.send('Database Error : user not registered')
+        }
+    }
+})
 
-app.listen(8000, () => console.log('server is running on http://localhost:8000'))
+app.get('/users', async (req, res) => {
+    let users = await User.find()
+    res.send(users)
+})
+
+
+app.listen(9000, () => console.log('server is running on 9000'))
