@@ -13,7 +13,5 @@ let adminAuth = async (req, res, next) => {
     } catch (e) {
         res.send({ success: false, message: e })
     }
-
-
 }
 module.exports = adminAuth

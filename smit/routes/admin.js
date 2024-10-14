@@ -8,6 +8,7 @@ let router = express.Router()
 
 
 router.post('/login', Login)
+router.post('/login', Login)
 
 
 

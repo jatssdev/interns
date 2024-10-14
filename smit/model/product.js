@@ -1,7 +1,7 @@
 let mongose = require('mongoose')
 
 let productSchema = mongose.Schema({
-    name: String,
+    title: String,
     email: String,
     password: String
 })
