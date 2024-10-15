@@ -1,11 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit"
 import todoSlice from "./todoSlice"
+import productsSlice from "./productsSlice"
 
 
 let store = configureStore({
     reducer: {
         users: [],
-        posts: [],
+        products: productsSlice,
         todos: todoSlice
     }
 })

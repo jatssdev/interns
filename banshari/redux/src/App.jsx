@@ -4,14 +4,17 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { add, done } from './redux/todoSlice'
+import { getAllProducts } from './redux/productsSlice'
 
 function App() {
   let [title, setTitle] = useState('')
   let todosData = useSelector((x) => x.todos)
+  let productsData = useSelector((x) => x.products)
   let dispatch = useDispatch()
   useEffect(() => {
+    dispatch(getAllProducts())
     console.log(todosData)
-  })
+  }, [])
   let AddTodoHandler = (e) => {
     e.preventDefault()
 
@@ -38,6 +41,16 @@ function App() {
           })
         }
       </div>
+
+      <hr />
+      <h1>products</h1>
+      {
+        productsData.loading ? 'loading...' : productsData.products.map((x, i) => {
+          return <div>
+            <img src={x.thumbnail} alt="" />
+          </div>
+        })
+      }
     </>
   )
 }

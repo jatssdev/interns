@@ -1,9 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-
-
-
-
 // let [todos,setTodos] = useState([])
 let todoSlice = createSlice({
     name: 'todos',
@@ -29,6 +25,8 @@ let todoSlice = createSlice({
             return state
         }
     }
+
+
 })
 
 export default todoSlice.reducer
