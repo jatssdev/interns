@@ -2,10 +2,11 @@ let mongose = require('mongoose')
 
 let productSchema = mongose.Schema({
     title: String,
-    email: String,
-    password: String
+    price: Number,
+    category: String,
+    images: [String]
 })
 
-let User = mongose.model('users', productSchema)
+let Product = mongose.model('products', productSchema)
 
-module.exports = User
+module.exports = Product

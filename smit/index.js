@@ -8,6 +8,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 require('./config/db')
 
+
 let userRoutes = require('./routes/user')
 let adminRoutes = require('./routes/admin')
 let productRoutes = require('./routes/product')

@@ -4,6 +4,7 @@ const Auth = require('../middlewares/Auth')
 const { upload } = require('../config/multer')
 
 
+
 let router = express.Router()
 
 router.post('/register', upload.single('profile'), Register)

@@ -1,23 +1,18 @@
 let express = require('express')
 const Auth = require('../middlewares/Auth')
+
+const { AddProduct, SingleProduct, DeleteProduct, GetAllProducts } = require('../controllers/product')
 const { upload } = require('../config/multer')
-const { AddProduct } = require('../controllers/product')
 
 
 
 let router = express.Router()
 
 
-router.post('/', upload.fields([
-    { name: 'img2', maxCount: 5 },
-    { name: 'img1', maxCount: 5 },
-    { name: 'img3', maxCount: 5 },
-    { name: 'img4', maxCount: 5 },
-    { name: 'img5', maxCount: 5 },
-
-]), AddProduct)
-
-
+router.post('/', upload.array('images', 10), AddProduct)
+router.get('/', GetAllProducts)
+router.get('/:id', SingleProduct)
+router.delete('/:id', DeleteProduct)
 
 
 module.exports = router
