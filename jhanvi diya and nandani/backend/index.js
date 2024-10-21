@@ -3,6 +3,8 @@
 
 // import express from 'express'
 
+// nodemon --> to start server
+
 let express = require('express')
 let app = express()
 
