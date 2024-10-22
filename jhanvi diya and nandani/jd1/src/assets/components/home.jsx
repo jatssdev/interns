@@ -5,8 +5,9 @@ import { shoes, tshirt } from './products'
 const Home = () => {
     return (
         <>
-            <ProductWrapper heading={'Tshirts'} data={tshirt} />
-            <ProductWrapper heading={'Shoes'} data={shoes} />
+            <div style={{ padding: '100px' }}>
+                <ProductWrapper heading={'Tshirts'} data={tshirt} />
+                <ProductWrapper heading={'Shoes'} data={shoes} /></div>
         </>
     )
 }
