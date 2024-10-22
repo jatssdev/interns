@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="input">
+    <button onclick="CheckInput()">Check</button>
+    <p id="result"></p>
+
+
+    <script>
+        function CheckInput() {
+            try {
+                let value = input.value
+
+                if (isNaN(value)) {
+                    throw 'Value Should be number'
+                }
+                if (value > 10) throw 'value should be less then 10'
+                if (value < 5) throw 'value should be greater then 5'
+
+                result.innerHTML = 'value is okay'
+                result.style.color = 'green'
+
+            } catch (e) {
+                document.getElementById("result").innerHTML = e;
+                result.style.color = 'red'
+
+            } finally {
+                input.value = ''
+            }
+        }
+    </script>
+</body>
+
+</html>

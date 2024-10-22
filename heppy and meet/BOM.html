@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="CancelDelay()">Cancel</button>
+    <h1><span id="hour">0</span> : <span id="minut">0</span> : <span id="second">0</span></h1>
+
+    <script>
+
+
+
+        let time = setTimeout(() => {
+            // alert('hello world')
+            console.log('hello')
+        }, 3000)
+
+        let interval = setInterval(() => {
+            let d = new Date()
+            let h = d.getHours()
+            let m = d.getMinutes()
+            let s = d.getSeconds()
+            hour.innerHTML = h
+            minut.innerHTML = m
+            second.innerHTML = s
+        }, 1000)
+
+
+        let CancelDelay = () => {
+            clearTimeout(time)
+            clearInterval(interval)
+        }
+
+
+    </script>
+</body>
+
+</html>

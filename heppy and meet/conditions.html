@@ -10,7 +10,7 @@
 <body>
     <h1>Javascript Conditons
         <script>
-            let val = 1000
+            let val = 10
 
             // if (val > 100) {
             //     console.log('condition is true')
@@ -24,6 +24,21 @@
 
             // val > 100 ? console.log('value is more than 100 ') : console.log('value is less than 100')
             // 10 == 10 ? alert('hello') : alert('hi')
+
+            switch (val) {
+                case 10:
+                    console.log('value is 10')
+                    break;
+                case 100:
+                    console.log('value is 100')
+                    break;
+
+                case 1000:
+                    console.log('value is 1000')
+                    break;
+                default: console.log('value not matching to any cases')
+
+            }
 
         </script>
     </h1>
