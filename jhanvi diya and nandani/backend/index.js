@@ -1,17 +1,18 @@
+// http://localhost:8000/your-created-route
 // npm init 
-// npm i express 
+// npm i express
 
 // import express from 'express'
 
 // nodemon --> to start server
 
-let express = require('express')
-let app = express()
-app.use(express.json())
-require('./conn')
-let User = require('./userModel')
+let express = require('express') //import express 
+let app = express() // create app and call express function
+app.use(express.json()) // configuration for sending json formatted data 
+require('./conn') // import database connection file
+let User = require('./userModel') // import user model 
 app.get('/', (req, res) => {
-    res.send('<h1>Hello World</h1>') //send response to server
+    res.send('<h1>Hello World</h1>')
 })
 app.get('/products', (req, res) => {
     let arr = [
@@ -86,6 +87,8 @@ app.post('/register', async (req, res) => {
         res.send('user not registered')
     }
 })
+
+
 
 app.listen(8000, () => {
     console.log('server is running on port 8000')
