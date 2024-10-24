@@ -10,6 +10,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
 require('./config/conn')
 let userRoutes = require('./routes/userRoutes')
+let productRoutes = require('./routes/productRoutes')
 app.use('/api/user', userRoutes)
-
+app.use('/api/product', productRoutes)
 app.listen(9000, () => console.log('server is running on 9000'))
