@@ -1,6 +1,5 @@
 
 let cookieParser = require('cookie-parser')
-
 let express = require('express')
 let cors = require('cors')
 let app = express()
@@ -14,3 +13,4 @@ let productRoutes = require('./routes/productRoutes')
 app.use('/api/user', userRoutes)
 app.use('/api/product', productRoutes)
 app.listen(9000, () => console.log('server is running on 9000'))
+
