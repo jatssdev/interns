@@ -1,96 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Product</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f4f4f9;
-            margin: 0;
-        }
 
-        .form-container {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            width: 100%;
-        }
+@section('mainSection')
+<style>
+    .mainContainer {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f4f4f9;
+        margin: 0;
+    }
 
-        .form-container h2 {
-            text-align: center;
-            color: #333;
-        }
+    .form-container {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+    }
 
-        .form-group {
-            margin-bottom: 15px;
-        }
+    .form-container h2 {
+        text-align: center;
+        color: #333;
+    }
 
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #555;
-        }
+    .form-group {
+        margin-bottom: 15px;
+    }
 
-        .form-group input[type="text"],
-        .form-group input[type="number"],
-        .form-group input[type="file"] {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
+    .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #555;
+    }
 
-        .submit-button {
-            width: 100%;
-            background-color: #007BFF;
-            color: #ffffff;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
+    .form-group input[type="text"],
+    .form-group input[type="number"],
+    .form-group input[type="file"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
 
-        .error-message,
-        .success-message {
-            font-size: 14px;
-            margin-bottom: 10px;
-            text-align: center;
-        }
+    .submit-button {
+        width: 100%;
+        background-color: #007BFF;
+        color: #ffffff;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
 
-        .error-message {
-            color: #e74c3c;
-        }
+    .error-message,
+    .success-message {
+        font-size: 14px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
 
-        .success-message {
-            color: #28a745;
-        }
+    .error-message {
+        color: #e74c3c;
+    }
 
-        .form-container .alert {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-            padding: 10px;
-            border-radius: 4px;
-            margin-bottom: 15px;
-            font-size: 14px;
-        }
-    </style>
-</head>
+    .success-message {
+        color: #28a745;
+    }
 
-<body>
+    .form-container .alert {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+        padding: 10px;
+        border-radius: 4px;
+        margin-bottom: 15px;
+        font-size: 14px;
+    }
+</style>
 
+<div class="mainContainer">
     <div class="form-container">
         <h2>Add Product</h2>
 
@@ -153,7 +148,5 @@
             <button type="submit" class="submit-button">Add Product</button>
         </form>
     </div>
-
-</body>
-
-</html>
+</div>
+@endsection

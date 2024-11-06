@@ -55,6 +55,7 @@ class userController extends Controller
                     'user_id' => $user->id,
                     'user_name' => $user->name,
                     'user_email' => $user->email,
+                    'profile' => $user->profile
                 ]);
                 return redirect()->route('home');
             } else {

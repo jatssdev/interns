@@ -15,7 +15,7 @@ class productController extends Controller
     function showproduct()
     {
         $products = Product::all();
-        return view('pages.showproduct', compact('products'));
+        return view('welcome', compact('products'));
     }
 
 
@@ -58,7 +58,7 @@ class productController extends Controller
         if ($product->save()) {
             return redirect()->back()->with('success', 'Product added successfully!');
         } else {
-            return redirect()->route('showproduct')->withErrors(['error' => 'Failed to save product to the database.']);
+            return redirect()->route('home')->withErrors(['error' => 'Failed to save product to the database.']);
         }
     }
 
