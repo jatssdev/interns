@@ -3,6 +3,8 @@
 // run windowPowershell as admin 
 // Set-ExecutionPolicy Unrestricted 
 
+// npm i mongoose --> install mongo db
+
 
 
 // npm init 
@@ -11,6 +13,10 @@ let express = require('express') //  same as --> import express from 'express'
 let cors = require('cors')
 let app = express()
 app.use(cors())
+app.use(express.json())
+require('./conn')
+let User = require('./userModel')
+const { default: mongoose } = require('mongoose')
 // get,post,put,delete 
 
 app.get('/', (req, res) => {
@@ -189,6 +195,28 @@ app.get('/products', (req, res) => {
     res.send(earbud)
 })
 
+app.get('/users', async (req, res) => {
+    let users = await User.find()
+    res.send(users)
+})
+
+app.post('/register', async (req, res) => {
+    let newUser = User({
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password
+    })
+
+    let result = await newUser.save()
+
+    if (result) {
+        res.send('user registered!')
+
+    } else {
+        res.send('Error :  database error ')
+    }
+
+})
 
 
 
