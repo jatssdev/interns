@@ -26,10 +26,26 @@ let addNewProduct = async (req, res) => {
         res.send({ success: false, message: e })
     }
 }
+
 let getAllProducts = async (req, res) => {
     let products = await Product.find()
     res.send(products)
 }
 
 
-module.exports = { getAllProducts, addNewProduct }
+let getPRoductByCategory = async (req, res) => {
+    let category = req.params.category
+    let products = await Product.find({ category: category })
+    if (products) {
+
+        res.send(products)
+
+
+    } else {
+        res.send('error : database error')
+    }
+}
+
+
+
+module.exports = { getAllProducts, getPRoductByCategory, addNewProduct }
