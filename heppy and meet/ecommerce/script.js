@@ -271,6 +271,9 @@ const tshirt = [
         category: "tshirt",
     },
 ];
+const allProducts = [...tshirt, ...earbud]
+
+let cart = []
 
 // wrapper.innerHTML = earbud.map((x) => {
 //     return `
@@ -335,7 +338,7 @@ function renderProducts(element, data) {
                     ₹${x.price} <span class="product-discount">(${x.discount}% OFF)</span>
                 </div>
                 <div class="product-footer">
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart" onclick="AddToCart(${x.id})">Add to Cart</button>
 
                 </div>
             </div>
@@ -345,3 +348,50 @@ function renderProducts(element, data) {
 }
 renderProducts(wrapper, earbud)
 renderProducts(wrapper2, tshirt)
+
+
+function cartToggleHandler() {
+
+    cartElem.classList.toggle('active')
+}
+
+function AddToCart(id) {
+    let product = allProducts.find((x) => x.id == id)
+    cart.push(product)
+
+    cartBody.innerHTML = cart.map((x) => {
+        return `
+            <div class="cart-item">
+                <img src="${x.img}" alt="${x.title}" class="cart-item-image">
+                <div class="cart-item-details">
+                    <h3 class="cart-item-title">${x.title}</h3>
+                    <p class="cart-item-price">₹${x.price}</p>
+                    <p class="cart-item-qty">Quantity: ${x.qty}</p>
+                    <button class="remove-item" onclick="removeItem(${x.id})">Remove</button>
+                </div>
+            </div>
+        `;
+    }).join("");
+
+}
+
+function removeItem(id) {
+    let newCart = cart.filter((x) => x.id != id)
+    cart = newCart
+
+    cartBody.innerHTML = cart.map((x) => {
+        return `
+            <div class="cart-item">
+                <img src="${x.img}" alt="${x.title}" class="cart-item-image">
+                <div class="cart-item-details">
+                    <h3 class="cart-item-title">${x.title}</h3>
+                    <p class="cart-item-price">₹${x.price}</p>
+                    <p class="cart-item-qty">Quantity: ${x.qty}</p>
+                    <button class="remove-item" onclick="removeItem(${x.id})">Remove</button>
+                </div>
+            </div>
+        `;
+    }).join("");
+
+
+}
